@@ -6,7 +6,7 @@
     $user = "root";
     $pass = "";
 
-    $BD = "venta partes pc";
+    $BD = "venta_partes_pc";
 
     $con = mysqli_connect($host,$user,$pass);
 
