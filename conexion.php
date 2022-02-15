@@ -1,13 +1,6 @@
 
 <?php
  
-//   function conectar(){
-//     $host = "localhost";
-//     $user = "root";
-
-
-//   }
-  function conectar(){
     $host = "localhost";
     $user = "root";
     $pass = "";
@@ -20,5 +13,4 @@
 
     return $con;
 
-  }
 ?>
