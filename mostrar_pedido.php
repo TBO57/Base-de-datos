@@ -5,7 +5,7 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM pedido";
 $query=mysqli_query($con,$sql);
 
 ?>
@@ -29,11 +29,14 @@ $query=mysqli_query($con,$sql);
     
         <tr align="center" >
             
+          <th>Id_usuario</th>
           <th>Id</th>
-          <th>Telefono</th>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Contraseña</th>
+          <th>Fecha</th>
+          <th>Monto_total</th>
+          <th>Calle</th>
+          <th>Carrera</th>
+          <th>Departamento</th>
+          <th>Municipio</th>
              
         </tr>
                </thead>
@@ -47,11 +50,14 @@ $query=mysqli_query($con,$sql);
         ?>
 
         <tr>
+          <th><?php  echo $row['Id_usuario']?></th>
           <th><?php  echo $row['Id']?></th>
-          <th><?php  echo $row['Telefono']?></th>
-          <th><?php  echo $row['Nombre']?></th> 
-          <th><?php  echo $row['Correo']?></th>
-          <th><?php  echo $row['Contraseña']?></th>
+          <th><?php  echo $row['Fecha']?></th>
+          <th><?php  echo $row['Monto_total']?></th>
+          <th><?php  echo $row['Calle']?></th>
+          <th><?php  echo $row['Carrera']?></th> 
+          <th><?php  echo $row['Departamento']?></th>
+          <th><?php  echo $row['Municipio']?></th>
                                                     
         </tr>
 

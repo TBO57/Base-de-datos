@@ -5,7 +5,7 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM producto";
 $query=mysqli_query($con,$sql);
 
 ?>
@@ -29,12 +29,14 @@ $query=mysqli_query($con,$sql);
     
         <tr align="center" >
             
-          <th>Id</th>
-          <th>Telefono</th>
+          <th>Codigo</th>
+          <th>Stock</th>
           <th>Nombre</th>
-          <th>Correo</th>
-          <th>Contraseña</th>
-             
+          <th>Precio</th>
+          <th>Descripcion</th>
+          <th>Imagen</th>
+          <th>Categoria</th>   
+
         </tr>
                </thead>
 
@@ -47,11 +49,13 @@ $query=mysqli_query($con,$sql);
         ?>
 
         <tr>
-          <th><?php  echo $row['Id']?></th>
-          <th><?php  echo $row['Telefono']?></th>
+          <th><?php  echo $row['Codigo']?></th>
+          <th><?php  echo $row['Stock']?></th>
           <th><?php  echo $row['Nombre']?></th> 
-          <th><?php  echo $row['Correo']?></th>
-          <th><?php  echo $row['Contraseña']?></th>
+          <th><?php  echo $row['Precio']?></th> 
+          <th><?php  echo $row['Descripcion']?></th> 
+          <th><?php  echo $row['Imagen']?></th>
+          <th><?php  echo $row['Categoria']?></th>
                                                     
         </tr>
 
