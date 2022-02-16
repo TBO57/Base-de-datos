@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <form method="POST" action="modify_usuario.php">
+  <form method="POST" action="add_usuario.php">
   <fieldset>
     <legend>Ingrese los datos que desea agregar</legend>
 

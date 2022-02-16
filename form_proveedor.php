@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <form method="POST" action="modify_proveedor.php">
+  <form method="POST" action="add_proveedor.php">
   <fieldset>
     <legend>Ingrese los datos que desea agregar</legend>
 
