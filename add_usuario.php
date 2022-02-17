@@ -26,7 +26,8 @@
 
      if ($consulta = 1)
      {
-        print "Datos guardados con Exito ";
+        Header("Location: mostrar_usuario.php");
+        /*print "Datos guardados con Exito ";*/
      }
     ?>
 </body>
