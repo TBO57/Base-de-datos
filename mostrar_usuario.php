@@ -85,8 +85,9 @@ $query=mysqli_query($con,$sql);
     
      <div class="row">
       <div class="col-md-3">
-
+       <div class="text text-center">
       <h1><span class="badge bg-warning text-dark border border-dark">Ingrese datos</span></h1>
+       </div>
        <form action="add_usuario.php" method="POST">
      
         <input type="number" class="form-control mb-3" name="Id_usuario" placeholder="Id Usuario">
