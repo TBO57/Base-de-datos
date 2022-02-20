@@ -5,13 +5,15 @@ include("conexion.php");
 
 $con=conectar();
 
-$Id_user = $_POST['Id_usuario'];
-$Tel =$_POST['Telefono'];
-$Nom =$_POST['Nombre'];
-$email =$_POST['Correo'];
-$pwd =$_POST['Contraseña'];
+    $cod = $_REQUEST["Codigo"];
+    $sto = $_REQUEST["Stock"]; 
+    $Nom = $_REQUEST["Nombre"];
+    $pre = $_REQUEST["Precio"];
+    $des = $_REQUEST["Descripcion"];
+    $img = $_REQUEST["Imagen"];
+    $cat = $_REQUEST["Categoria"];
 
-$sql="UPDATE usuario SET Telefono='$Tel',Nombre='$Nom',Correo='$email',Contraseña='$pwd' WHERE Id='$Id_user'";
+$sql="UPDATE producto SET Stock='$sto', Nombre = '$Nom', Precio = '$pre', Descripcion = '$des', Imagen = '$img', Categoria = '$cat' WHERE Codigo='$cod'";
 // $sql="UPDATE departamentos SET Nombre='$nombre_',Economia='$economia_' WHERE IdDpto='$codigo_dpto_'";
 
 $query=mysqli_query($con,$sql);
@@ -32,11 +34,10 @@ $query=mysqli_query($con,$sql);
 
  if($query){
 
-  Header("Location: mostrar_usuario.php");
+  Header("Location: mostrar_producto.php");
  }
  
 ?>
 
 </body>
 </html>
-<!-- Ventana de Confirmación -->

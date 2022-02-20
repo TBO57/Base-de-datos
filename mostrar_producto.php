@@ -1,7 +1,7 @@
 <?php
 
 include("conexion.php");
-// include("nav.html");
+
 $con = conectar();
 
 $sql = "SELECT * FROM producto";
