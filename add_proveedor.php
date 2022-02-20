@@ -13,20 +13,12 @@
      $Id_prov = $_REQUEST["Id_proveedor"];
      $Nom = $_REQUEST["Nombre"];  
      $url = $_REQUEST["Pagina_web"]; 
-     
-    // echo $codigodpto;
-     //echo $nombredpto;
-    // echo $economiadpto;
 
-    //  $conexion = mysqli_connect("localhost","root","","Pais");
     include("conexion.php");
 
     $con = conectar();
     
     $sql = "INSERT INTO proveedor(id_proveedor,nombre,pagina_web) VALUES ('$Id_prov','$Nom','$url')";
-    // VALUES ("4081","Semic","https://www.semic.es/");
-     
-    // echo $sql;
 
      $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
