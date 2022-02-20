@@ -9,23 +9,25 @@
 </head>
 <body>
     <?php
-        $Id_user = $_REQUEST["Id_usuario"];
-        $Tel = $_REQUEST["Telefono"];
+        $cod = $_REQUEST["Codigo"];
+        $sto = $_REQUEST["Stock"]; 
         $Nom = $_REQUEST["Nombre"];
-        $email = $_REQUEST["Correo"];
-        $pwd = $_REQUEST["Contraseña"];
+        $pre = $_REQUEST["Precio"];
+        $des = $_REQUEST["Descripcion"];
+        $img = $_REQUEST["Imagen"];
+        $cat = $_REQUEST["Categoria"];
   
     include("conexion.php");
 
     $con = conectar();
     
-    $sql = "INSERT INTO usuario(id,telefono,nombre,correo,contraseña) VALUES ('$Id_user','$Tel','$Nom','$email','$pwd')";
+    $sql = "INSERT INTO producto(Codigo,Stock,Nombre,Precio,Descripcion,Imagen,Categoria) VALUES ('$cod','$Sto','$Nom','$pre','$des','$img','$cat')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
         if ($consulta = 1){
 
-            Header("Location: mostrar_usuario.php");
+            Header("Location: mostrar_producto.php");
         }
         ?>
 </body>
