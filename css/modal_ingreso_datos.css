@@ -1,0 +1,28 @@
+.abrir {
+  display: flex;
+  justify-content: flex-start;
+}
+.abrir button {
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #198754;
+  color: #fff;
+  border: 1px solid #198754;
+  transition: all 0.25s ease-in-out;
+  border-radius: 6px;
+}
+.abrir button:hover {
+  background-color: #fff !important;
+  color: #198754 !important;
+  border: 1px solid #198754;
+}
+.titulo-modal {
+  position: relative;
+  left: 100px;
+}
+thead th {
+  color: #fff !important;
+}
