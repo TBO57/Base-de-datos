@@ -22,7 +22,7 @@
     
     $sql = "INSERT INTO usuario(id,telefono,nombre,correo,contraseña) VALUES ('$Id_user','$Tel','$Nom','$email','$pwd')";
 
-     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
+$consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
      if ($consulta = 1)
      {

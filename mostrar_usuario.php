@@ -3,10 +3,10 @@
 
 include("conexion.php");
 // include("nav.html");
-
 $con = conectar();
 
 $sql = "SELECT * FROM usuario";
+
 $query=mysqli_query($con,$sql);
 
 ?>
@@ -95,19 +95,18 @@ $query=mysqli_query($con,$sql);
         <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre">
         <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo">
         <input type="password" class="form-control mb-3" name="Contraseña" placeholder="Contraseña">
+         <div class="text text-center">
         <input type="submit" value="Enviar" class="btn btn-success">
+         </div>
        </form>
       <!-- <div class="vh-100 row m-0 text-center align-items-center justify-content-center"> -->
       <!-- <input type="submit" value="Enviar" name="Sub" />    -->
      </div>
 
-     
         <!-- <h1><span class="badge bg-warning">Ingrese datos</span></h1> -->
    <!-- </div> -->
-
-    <div class="col-md-8 table-responsive /*table-responsive container*/">
-     <table class="text-center table table-bordered table-hover/*table-striped*/ shadow-lg mt-1" style="width:100% " 
-     /*border="1"*/>
+    <div class="col-md-8 table-responsive/*table-responsive container*/">
+     <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
     
       <thead>
         <tr align="center">
@@ -134,9 +133,9 @@ $query=mysqli_query($con,$sql);
          <th><?php  echo $row['Correo']?></th>
          <th><?php  echo $row['Contraseña']?></th>
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_usuario.php?Id_"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_usuario.php"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
          <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
 

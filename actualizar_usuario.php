@@ -1,16 +1,13 @@
 
-<!-- <?php
-
-print "HOLI :/";
-
-?> -->
-
 <?php 
 
 include("conexion.php");
+
 $con=conectar();
 
-$sql="SELECT * FROM usuario";
+$Id_user = $_GET['Id'];
+
+$sql="SELECT * FROM usuario WHERE Id='$Id_user'";
 
 $query=mysqli_query($con,$sql);
 
