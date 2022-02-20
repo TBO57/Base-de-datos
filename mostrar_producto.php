@@ -4,7 +4,7 @@ include("conexion.php");
 // include("nav.html");
 $con = conectar();
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM producto";
 
 $query=mysqli_query($con,$sql);
 
@@ -14,7 +14,7 @@ $query=mysqli_query($con,$sql);
 <html lang="es">
 <head>
     
-  <title> Usuarios </title>
+  <title> Productos </title>
    <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,7 @@ $query=mysqli_query($con,$sql);
 <!-- ------Navbar------- -->
 
 <div class="title text-center py-3">
-    <h1>Usuarios</h1> 
+    <h1>Productos</h1> 
 </div>
 
 <div class="content"  style="margin-top: 3px;">
@@ -88,48 +88,61 @@ $query=mysqli_query($con,$sql);
         <!-- <h1><span class="badge bg-warning">Ingrese datos</span></h1> -->
    <!-- </div> -->
     <div class="col-md-8 table-responsive/*table-responsive container*/">
-     <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
+        <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
     
-      <thead>
-        <tr align="center">
-          <th class="bg-info" >Id</th>
-          <th class="bg-info">Telefono</th>
-          <th class="bg-info">Nombre</th>
-          <th class="bg-info">Correo</th>
-          <th class="bg-info">Contraseña</th>   
-          <th class="table-dark"></th>
-          <th class="table-dark"></th>
-        </tr>
-      </thead>
+            <thead>
+                <tr align="center">
+                <th class="bg-info" >Codigo</th>
+                <th class="bg-info">Stock</th>
+                <th class="bg-info">Nombre</th>
+                <th class="bg-info">Precio</th>
+                <th class="bg-info">Descripción</th>
+                <th class="bg-info">Imagen</th> 
+                <th class="bg-info">Categoría</th> 
+                <th class="table-dark"></th>
+                <th class="table-dark"></th>
+                </tr>
+            </thead>
 
-          <tbody>
+            <tbody>
 
-          <?php
-            while($row=mysqli_fetch_array($query)){
-          ?>
+                <?php
+                    while($row=mysqli_fetch_array($query)){
+                ?>
 
-       <tr align="center">
-         <th><?php  echo $row['Id']?></th>
-         <th><?php  echo $row['Telefono']?></th>
-         <th><?php  echo $row['Nombre']?></th> 
-         <th><?php  echo $row['Correo']?></th>
-         <th><?php  echo $row['Contraseña']?></th>
-         <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+                <tr align="center">
+                    <th><?php  echo $row['Codigo']?></th>
+                    <th><?php  echo $row['Stock']?></th>
+                    <th><?php  echo $row['Nombre']?></th> 
+                    <th><?php  echo $row['Precio']?></th>
+                    <th><?php  echo $row['Descripcion']?></th>
+                    <th><?php  echo $row['Imagen']?></th>
+                    <th><?php  echo $row['Categoria']?></th>
 
-         <th style="text-align:center"><a href="eliminar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
-            <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
+                    <th style="text-align:center">
+                        <a href="actualizar_producto.php?Id=<?php echo $row['Id'] ?>"> 
+                            <button type="button" class="btn btn-light border border-dark ">
+                                Editar
+                            </button>
+                        </a>
+                    </th>
 
-            <th style="text-align:center"><a href="delete.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button"  class="btn btn-danger" onclick="return confirmDelete()">Eliminar</button></a> -->
-            </th>                                        
-          </tr>
+                    <th style="text-align:center">
+                        <a href="eliminar_producto.php?Id=<?php echo $row['Id'] ?>">
+                            <button type="button" class="btn btn-danger">
+                                Eliminar
+                            </button>
 
-          <?php 
-            }
-          ?>
+                        </a>
 
-          </tbody>
+                    </th>
+
+                <?php 
+                    }
+                ?>
+
+            </tbody>
         </table>
       </div>
 
