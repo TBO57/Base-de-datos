@@ -1,0 +1,23 @@
+
+CREATE TABLE Usuario(Id Integer(7) PRIMARY KEY, Telefono varchar(10) NOT NULL, Nombre varchar(50) NOT NULL, Correo varchar(320) NOT 
+NULL, Contraseña varchar(300) NOT NULL);
+                     
+CREATE TABLE Pedido(Id_usuario Integer(7), Id Integer(15) PRIMARY KEY, Fecha date, Monto_total Integer(8), Calle varchar(5), Carrera 
+varchar(5), Departamento varchar(40) NOT NULL, Municipio varchar(40) NOT NULL); ALTER TABLE Pedido ADD FOREIGN KEY Pedido(Id_usuario) REFERENCES Usuario(Id);  
+
+CREATE TABLE Producto_pedido(Estado varchar(15) NOT NULL, Id_pedido Integer(15) NOT NULL, Codigo_producto varchar(12) NOT NULL);
+
+CREATE TABLE Producto(Codigo varchar(12) PRIMARY KEY NOT NULL, Stock varchar(4), Nombre varchar(50) NOT NULL, Precio Integer(10) NOT 
+NULL, Descripcion varchar(250), Imagen varchar(100) NOT NULL, Categoria varchar(50)); 
+
+CREATE TABLE Reseña(Codigo_producto varchar(12), Usuario varchar(50) NOT NULL, Fecha date, Comentario varchar(250), Valoracion 
+double(2,1)); ALTER TABLE Reseña ADD FOREIGN KEY Reseña(Codigo_producto) REFERENCES Producto(Codigo); 
+
+CREATE TABLE Proveedor(Id_proveedor varchar(4) PRIMARY KEY NOT NULL, Nombre varchar(50) NOT NULL, Pagina_web varchar(250));
+
+CREATE TABLE Proveedor_producto(Codigo_producto varchar(12), Id_proveedor varchar(4), Costo_total Integer(10), Fecha_compra date, 
+Cantidad_producto Integer(5)); 
+
+ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
+
+ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Id_proveedor) REFERENCES Proveedor(Id_proveedor);
