@@ -85,9 +85,6 @@ $query=mysqli_query($con,$sql);
     
     <div>
       
-
-        <!-- <h1><span class="badge bg-warning">Ingrese datos</span></h1> -->
-   <!-- </div> -->
     <div class="col-md-8 table-responsive/*table-responsive container*/">
      <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
     
