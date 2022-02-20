@@ -21,7 +21,7 @@
 
     $con = conectar();
     
-    $sql = "INSERT INTO producto(Codigo,Stock,Nombre,Precio,Descripcion,Imagen,Categoria) VALUES ('$cod','$Sto','$Nom','$pre','$des','$img','$cat')";
+    $sql = "INSERT INTO producto(Codigo,Stock,Nombre,Precio,Descripcion,Imagen,Categoria) VALUES ('$cod','$sto','$Nom','$pre','$des','$img','$cat')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
