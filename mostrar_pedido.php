@@ -10,6 +10,8 @@ $sql = "SELECT usuario.Nombre, usuario.Id, pedido.Id, pedido.Fecha, pedido.Monto
 
 $query=mysqli_query($con,$sql);
 
+$ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo realizar la consulta');
+
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +88,7 @@ $query=mysqli_query($con,$sql);
     
     <div>
       
-    <div class="col-md-8 table-responsive/*table-responsive container*/">
+    <div class="table-responsive">
      <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
     
       <thead>
@@ -139,6 +141,7 @@ $query=mysqli_query($con,$sql);
 
           </tbody>
         </table>
+        
       </div>
 
     <div class = "abrir">
@@ -163,10 +166,32 @@ $query=mysqli_query($con,$sql);
                   <form action="add_pedido.php" method="POST">
   
                   <input type="number" class="form-control mb-3" name="Id_pedido" placeholder="Id pedido">
-                  <input type="text" class="form-control mb-3" name="Fecha" placeholder="Fecha">
-                  <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre">
-                  <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo">
-                  <input type="password" class="form-control mb-3" name="Contraseña" placeholder="Contraseña">
+                  <input type="date" class="form-control mb-3" name="Fecha" placeholder="Fecha">
+                  <input type="number" class="form-control mb-3" name="Monto" placeholder="Monto del pedido">
+                  <input type="text" class="form-control mb-3" name="Calle" placeholder="Calle">
+                  <input type="text" class="form-control mb-3" name="Carrera" placeholder="Carrera">
+                  <input type="text" class="form-control mb-3" name="Dpto" placeholder="Departamento">
+                  <input type="text" class="form-control mb-3" name="Mun" placeholder="Municipio">
+                  <h6>Seleccione el id del Usuario que realiza el pedido</h6>
+                  <select name="Id_us" id="" style="width:100%; background-color:#FFFFFF; font-size:15px">
+                   <?php
+
+                        while($pos = mysqli_fetch_array($ids))
+                        {
+                            echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
+                        }
+                        ?>
+                        </select>
+                      <!-- while($pos = mysqli_fetch_array($ids)){
+                        
+                        echo '<option value="'.$pos[0].'">'.$pos[1].'</option>'; 
+                       
+                       
+                      }
+
+                   ?>
+                  </select> -->
+                    <br><br>
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>
