@@ -1,10 +1,12 @@
+
+
 <?php
 
 include("conexion.php");
 // include("nav.html");
 $con = conectar();
 
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT usuario.Nombre, usuario.Id, pedido.Id, pedido.Fecha, pedido.Monto_total, pedido.Calle, pedido.Carrera, pedido.Departamento, pedido.Municipio FROM pedido,usuario WHERE pedido.Id_usuario = usuario.Id";
 
 $query=mysqli_query($con,$sql);
 
@@ -14,7 +16,7 @@ $query=mysqli_query($con,$sql);
 <html lang="es">
 <head>
     
-  <title> Usuarios </title>
+  <title> Pedidos </title>
    <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +76,7 @@ $query=mysqli_query($con,$sql);
 <!-- ------Navbar------- -->
 
 <div class="title text-center py-3">
-    <h1>Usuarios</h1> 
+    <h1>Pedidos</h1> 
 </div>
 
 <div class="content"  style="margin-top: 3px;">
@@ -89,11 +91,15 @@ $query=mysqli_query($con,$sql);
     
       <thead>
         <tr align="center">
-          <th class="bg-info" >Id</th>
-          <th class="bg-info">Telefono</th>
-          <th class="bg-info">Nombre</th>
-          <th class="bg-info">Correo</th>
-          <th class="bg-info">Contraseña</th>   
+          <th class="bg-info">Id usuario</th>
+          <!-- <th class="bg-info">Nombre usuario</th> -->
+          <th class="bg-info">Id pedido</th>
+          <th class="bg-info">Fecha</th>
+          <th class="bg-info">Monto total</th>
+          <th class="bg-info">Calle</th>
+          <th class="bg-info">Carrera</th>
+          <th class="bg-info">Departamento</th>   
+          <th class="bg-info">Municipio</th>   
           <th class="table-dark"></th>
           <th class="table-dark"></th>
         </tr>
@@ -106,13 +112,18 @@ $query=mysqli_query($con,$sql);
           ?>
 
        <tr align="center">
-         <th><?php  echo $row['Id']?></th>
-         <th><?php  echo $row['Telefono']?></th>
-         <th><?php  echo $row['Nombre']?></th> 
-         <th><?php  echo $row['Correo']?></th>
-         <th><?php  echo $row['Contraseña']?></th>
+         <th><?php  echo $row['1']?></th>
+         <!-- <th><?php  echo $row['0']?></th> -->
+         <th><?php  echo $row['2']?></th>
+         <th><?php  echo $row['3']?></th> 
+         <th><?php  echo $row['4']?></th>
+         <th><?php  echo $row['5']?></th>
+         <th><?php  echo $row['6']?></th>
+         <th><?php  echo $row['7']?></th>
+         <th><?php  echo $row['8']?></th>
+         
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_pedido.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
          <th style="text-align:center"><a href="eliminar_usuario.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
@@ -131,7 +142,7 @@ $query=mysqli_query($con,$sql);
       </div>
 
     <div class = "abrir">
-      <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo usuario</button>
+      <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo pedido</button>
     </div>
 
 <!-- Formulario ingresar datos -->
@@ -142,18 +153,19 @@ $query=mysqli_query($con,$sql);
               <div class="modal-header p-5 pb-4 border-bottom-0 text">
                   <!-- <h5 class="modal-title">Modal title</h5> -->
                   <div class = "titulo-modal">
-                    <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos</span></h2>
+                    <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos
+                     </span></h2>
                   </div>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
               <div class="modal-body p-5 pt-0">
-                  <form action="add_usuario.php" method="POST">
+                  <form action="add_pedido.php" method="POST">
   
-                  <input type="number" class="form-control mb-3" name="Id_usuario" placeholder="Id Usuario">
-                  <input type="text" class="form-control mb-3" name="Telefono" placeholder="Teléfono">
+                  <input type="number" class="form-control mb-3" name="Id_pedido" placeholder="Id pedido">
+                  <input type="text" class="form-control mb-3" name="Fecha" placeholder="Fecha">
                   <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre">
-                  <input type="email" class="form-control mb-3" name="Correo" placeholder="Correo">
+                  <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo">
                   <input type="password" class="form-control mb-3" name="Contraseña" placeholder="Contraseña">
                   <input type="submit" value="Enviar" class="btn btn-success">
 
