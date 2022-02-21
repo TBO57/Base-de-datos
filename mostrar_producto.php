@@ -140,7 +140,7 @@ $query = mysqli_query($con, $sql);
                         </tbody>
                     </table>
                 </div>
-
+                <!-- a -->
 
                 <div class="abrir">
                     <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo producto</button>
