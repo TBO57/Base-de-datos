@@ -87,7 +87,7 @@ $query=mysqli_query($con,$sql);
         <tr align="center">
           <th class="bg-info">Id Provedor</th>
           <th class="bg-info">Nombre</th>
-          <th class="bg-info">Pagina Webb</th>
+          <th class="bg-info">Pagina Web</th>
           <th class="table-dark"></th>
           <th class="table-dark"></th>
         </tr>
