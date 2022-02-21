@@ -5,13 +5,13 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo AND proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
+$sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto, producto.Nombre, proveedor.Nombre FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo AND proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
 
 $query=mysqli_query($con,$sql);
 
-$c1 = mysqli_query($con,"SELECT Codigo,Nombre FROM producto") or die ('No se pudo realizar la consulta');
+$c1 = mysqli_query($con,"SELECT Codigo,Nombre FROM producto,proveedor_producto WHERE proveedor_producto.Codigo_producto = producto.Codigo") or die ('No se pudo realizar la consulta');
 
-$c2 = mysqli_query($con,"SELECT Id_proveedor,Nombre FROM proveedor") or die ('No se pudo realizar la consulta');
+$c2 = mysqli_query($con,"SELECT Nombre FROM proveedor,proveedor_producto WHERE proveedor_producto.Id_proveedor = proveedor.Id_proveedor") or die ('No se pudo realizar la consulta');
 
 ?>
 
@@ -165,7 +165,8 @@ $c2 = mysqli_query($con,"SELECT Id_proveedor,Nombre FROM proveedor") or die ('No
                   <?php
                   while($pos = mysqli_fetch_array($c2))
                   {
-                    echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
+                    $aqui = mysqli_fetch_array($c1);
+                    echo '<option value="'.$aqui[0].'">'.$pos[0].'</option>';
                   }
                   ?>
                   </select>
