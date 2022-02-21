@@ -1,6 +1,5 @@
 body {
   background-color: #212121;
-  background-image: url("../img/fondo.jpg");
   background-size: 100%;
   background-size: cover;
 }
@@ -15,13 +14,12 @@ body {
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
 }
-h2 {
-  font-size: 70px;
-}
-
 .texto p {
   font-size: 25px;
 }
 .XD {
   color: #fcdb00;
+}
+h1 {
+  color: #fff;
 }

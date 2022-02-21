@@ -21,18 +21,6 @@
 
     $con = conectar();
 
-if(empty($Cod1))
-    {
-    echo '<div class="container">
-          <div class="row">
-         <div class="col-md-3  col-sm-6 col-xs-12">';
-    echo '<div class="alert alert-danger" role="alert"> Codigo demunicipio VACIO </div>';
-    echo '<th><input type="button" value="Página anterior" onClick="history.go(-1);"></th>';
-    echo '</div>
-    </div>
-    </div>';          
-    }
-else{    
     $sql = "INSERT INTO proveedor_producto(Id, Codigo_producto, Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Id','$Cod1','$Cod2','$Costo','$Fecha','$Num')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
@@ -42,7 +30,6 @@ else{
         Header("Location: mostrar_proveedor_producto.php");
      }
    
-    }
     ?>
 </body>
 </html>

@@ -6,10 +6,12 @@ include("conexion.php");
 
 $con=conectar();
 
-$C_producto = $_GET['Cod_pr'];
-$Id_prov = $_GET['Id_pro'];
+// $C_producto = $_GET['Cod_pr'];
+$Id = $_GET['Id_t'];
+// $C_producto = $_REQUEST['Cod_pr'];
+// $Id_prov = $_REQUEST['Id_pro'];
 
-$sql="SELECT * FROM proveedor_producto WHERE Codigo_producto='$C_producto' AND Id_proveedor='$Id_prov'";
+$sql="SELECT * FROM proveedor_producto WHERE Id='$Id'";
 
 $query=mysqli_query($con,$sql);
 

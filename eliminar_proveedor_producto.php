@@ -5,9 +5,9 @@ include("conexion.php");
 
 $con = conectar();
 
-$Id = $_GET['Id_prov'];
+$Id = $_GET['Id_t'];
 
-$sql = "DELETE FROM proveedor_producto WHERE Id_proveedor='$Id'";
+$sql = "DELETE FROM proveedor_producto WHERE Id='$Id'";
 
 $query = mysqli_query($con, $sql);
 

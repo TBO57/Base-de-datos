@@ -28,47 +28,52 @@ $query = mysqli_query($con, $sql);
 
   <!-- <style type="text/css">  </style>  -->
   <link rel="stylesheet" href="css/modal_ingreso_datos.css">
+  <link rel="stylesheet" href="css/mostrar.css">
 
 </head>
 
 
 <body>
 
-  <!-- ------Navbar------- -->
-  <nav class="navbar navbar-expand-lg navbar-light /*bg-light*/ /*fixed-top*/" style="background-color: #000000;">
-    <div class="container-fluid ">
-      <a class="navbar-brand text-white" href="/Base-de-datos/">Venta Partes Pc</a>
-      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0d1017;">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-5" href="index.html">
+        <img src="img/flame-blue-laptop.png" width="40" height="40" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_usuario.php">Usuarios</a>
+        <ul class="navbar-nav ms-auto mb-lg-0">
+          <li class="nav-item  mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_usuario.php">Usuarios</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_producto.php">Productos</a>
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_producto.php">Productos</a>
           </li>
-          <li class="nav-item h-100">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_pedido.php">Pedidos</a>
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_pedido.php">Pedidos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_proveedor.php">Proveedores</a>
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_proveedor.php">Proveedores</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_reseña.php">Reseñas</a>
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_reseña.php">Reseñas</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="mostrar_producto_pedido.php">Producto-pedido</a></span>
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="mostrar_producto_pedido.php">Producto<span class="XD">/</span>pedido</a></span>
           </li>
-          <li class="nav-item">
-            <span class="badge bg-warning text-dark border border-dark  h-100"> <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor-producto</a></span>
+          <li class="nav-item mr-5 ml-5">
+            <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor<span class="XD">/</span>producto</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  <!-- ------Navbar------- -->
+  <!-- navbar -->
 
   <div class="title text-center py-3">
     <div>
@@ -84,7 +89,7 @@ $query = mysqli_query($con, $sql);
       <div>
 
         <div class="table-responsive">
-          <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
+          <table class="text-center table table-bordered table-hover bg-light mt-1" style="width:100%">
 
             <thead>
               <tr align="center">
@@ -137,7 +142,7 @@ $query = mysqli_query($con, $sql);
               <div class="modal-header p-5 pb-4 border-bottom-0 text">
                 <!-- <h5 class="modal-title">Modal title</h5> -->
                 <div class="titulo-modal">
-                  <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos</span></h2>
+                  <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark">Ingrese datos</span></h2>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
@@ -148,7 +153,7 @@ $query = mysqli_query($con, $sql);
                   <input type="number" class="form-control mb-3" name="Id_prov" placeholder="Id Proveedor">
                   <input type="text" class="form-control mb-3" name="Nom" placeholder="Nombre">
                   <input type="text" class="form-control mb-3" name="url" placeholder="Pagina Webb">
-                  <input type="submit" value="Enviar" class="btn btn-success">
+                  <input type="submit" value="Enviar" class="btn btn-success px-5">
 
                 </form>
               </div>
