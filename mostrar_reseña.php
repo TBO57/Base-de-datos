@@ -4,171 +4,171 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT * FROM producto";
+$sql = "SELECT producto.Codigo, reseña.Id, reseña.Codigo_producto, reseña.Usuario, reseña.Fecha, reseña.Comentario, reseña.Valoracion FROM reseña,producto WHERE reseña.Codigo_producto = producto.Codigo";
 
-$query=mysqli_query($con,$sql);
+$query = mysqli_query($con, $sql);
+
+
+$ids = mysqli_query($con, "SELECT Codigo  FROM producto") or die('No se pudo realizar la consulta');
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    
-  <title> Productos </title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link href=" https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
-  <!-- <style type="text/css">  </style>  -->
-  <link rel="stylesheet" href="css/modal_ingreso_datos.css">
+<head>
+
+    <title> Productos </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href=" https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <!-- <style type="text/css">  </style>  -->
+    <link rel="stylesheet" href="css/modal_ingreso_datos.css">
 
 </head>
 
 
 <body>
-  
+
     <!-- ------Navbar------- -->
     <nav class="navbar navbar-expand-lg navbar-light /*bg-light*/ /*fixed-top*/" style="background-color: #000000;">
         <div class="container-fluid ">
-        <a class="navbar-brand text-white" href="/Base-de-datos/">Venta Partes Pc</a>
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_usuario.php">Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_producto.php">Productos</a>
-            </li>
-            <li class="nav-item h-100">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_pedido.php">Pedidos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_proveedor.php">Proveedores</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_reseña.php">Reseñas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active text-white" aria-current="page" href="mostrar_producto_pedido.php">Producto-pedido</a></span>
-            </li>
-            <li class="nav-item">
-                <span class="badge bg-warning text-dark border border-dark  h-100"> <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor-producto</a></span>
-            </li>
-            </ul>
-            <!-- <form class="d-flex">
+            <a class="navbar-brand text-white" href="/Base-de-datos/">Venta Partes Pc</a>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_usuario.php">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_producto.php">Productos</a>
+                    </li>
+                    <li class="nav-item h-100">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_pedido.php">Pedidos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_proveedor.php">Proveedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_reseña.php">Reseñas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="mostrar_producto_pedido.php">Producto-pedido</a></span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="badge bg-warning text-dark border border-dark  h-100"> <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor-producto</a></span>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form> -->
-        </div>
+            </div>
         </div>
     </nav>
     <!-- ------Navbar------- -->
 
     <div class="title text-center py-3">
-        <h1>Productos</h1> 
+        <h1>Reseñas</h1>
     </div>
 
-    <div class="content"  style="margin-top: 3px;">
-        <div class="container mt-2" >
+    <div class="content" style="margin-top: 3px;">
+        <div class="container mt-2">
             <div>
                 <div class="table-responsive">
                     <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
-                
+
                         <thead>
-                        <tr align="center">
-                        <th class="bg-info" >Codigo</th>
-                        <th class="bg-info">Stock</th>
-                        <th class="bg-info">Nombre</th>
-                        <th class="bg-info">Precio</th>
-                        <th class="bg-info">Descripción</th>
-                        <th class="bg-info">Imagen</th> 
-                        <th class="bg-info">Categoría</th> 
-                        <th class="table-dark"></th>
-                        <th class="table-dark"></th>
-                        </tr>
+                            <tr align="center">
+                                <th class="bg-info">Id_Reseña</th>
+                                <th class="bg-info">Codigo_producto</th>
+                                <th class="bg-info">Usuario</th>
+                                <th class="bg-info">Fecha</th>
+                                <th class="bg-info">Comentario</th>
+                                <th class="bg-info">Valoracíon</th>
+                                <th class="table-dark"></th>
+                                <th class="table-dark"></th>
+                            </tr>
                         </thead>
 
                         <tbody>
 
-                        <?php
-                            while($row=mysqli_fetch_array($query)){
-                        ?>
+                            <?php
+                            while ($row = mysqli_fetch_array($query)) {
+                            ?>
 
-                            <tr align="center">
-                            <th><?php  echo $row['Codigo']?></th>
-                            <th><?php  echo $row['Stock']?></th>
-                            <th><?php  echo $row['Nombre']?></th> 
-                            <th><?php  echo $row['Precio']?></th>
-                            <th><?php  echo $row['Descripcion']?></th>
-                            <th><?php  echo $row['Imagen']?></th>
-                            <th><?php  echo $row['Categoria']?></th>
+                                <tr align="center">
+                                    <th><?php echo $row['1'] ?></th>
+                                    <th><?php echo $row['2'] ?></th>
+                                    <th><?php echo $row['3'] ?></th>
+                                    <th><?php echo $row['4'] ?></th>
+                                    <th><?php echo $row['5'] ?></th>
+                                    <th><?php echo $row['6'] ?></th>
 
 
-                            <th style="text-align:center">
-                            <a href="actualizar_producto.php?Codigo=<?php echo $row['Codigo'] ?>"> 
-                                <button type="button" class="btn btn-light border border-dark ">
-                                Editar
-                                </button>
-                            </a>
-                            </th>
+                                    <th style="text-align:center">
+                                        <a href="actualizar_reseña.php?Codigo_producto=<?php echo $row['1'] ?>">
+                                            <button type="button" class="btn btn-light border border-dark ">
+                                                Editar
+                                            </button>
+                                        </a>
+                                    </th>
 
-                            <th style="text-align:center">
-                            <a href="eliminar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">
-                                <button type="button" class="btn btn-danger">
-                                Eliminar
-                                </button>
+                                    <th style="text-align:center">
+                                        <a href="eliminar_reseña.php?Codigo_producto=<?php echo $row['1'] ?>">
+                                            <button type="button" class="btn btn-danger">
+                                                Eliminar
+                                            </button>
 
-                            </a>
+                                        </a>
 
-                            </th>
+                                    </th>
 
-                        <?php 
+                                <?php
                             }
-                        ?>
+                                ?>
 
                         </tbody>
                     </table>
                 </div>
-        
 
-                <div class = "abrir">
-                    <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo usuario</button>
+
+                <div class="abrir">
+                    <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese una nueva reseña</button>
                 </div>
 
                 <!-- Formulario ingresar datos -->
-            
+
                 <div class="modal fade modal-signin py-5" tabindex="-1" role="dialog" id="datos">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content rounded-5 shadow">
                             <div class="modal-header p-5 pb-4 border-bottom-0 text">
                                 <!-- <h5 class="modal-title">Modal title</h5> -->
-                                <div class = "titulo-modal">
+                                <div class="titulo-modal">
                                     <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos</span></h2>
                                 </div>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
 
                             <div class="modal-body p-5 pt-0">
-                                <form action="add_producto.php" method="POST">
-                
-                                    <input type="number" class="form-control mb-3" name="Codigo" placeholder="Codigo">
-                                    <input type="text" class="form-control mb-3" name="Stock" placeholder="Stock">
-                                    <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre">
-                                    <input type="number" class="form-control mb-3" name="Precio" placeholder="Precio">
-                                    <input type="text" class="form-control mb-3" name="Descripcion" placeholder="Descripción">
-                                    <input type="text" class="form-control mb-3" name="Imagen" placeholder="URL imagen">
-                                    <input type="text" class="form-control mb-3" name="Categoria" placeholder="Categoria">
+                                <form action="add_reseña.php" method="POST">
+                                    <input type="number" class="form-control mb-3" name="Id" placeholder="Id reseña">
+                                    <input type="number" class="form-control mb-3" name="Codigo_producto" placeholder="Codigo producto">
+                                    <input type="text" class="form-control mb-3" name="Usuario" placeholder="Usuario">
+                                    <input type="date" class="form-control mb-3" name="Fecha" placeholder="Fecha">
+                                    <input type="text" class="form-control mb-3" name="Comentario" placeholder="Comentario">
+                                    <input type="number" class="form-control mb-3" name="Valoracion" placeholder="Valoracion producto" min="0" max="10" step="0.1">
                                     <input type="submit" value="Enviar" class="btn btn-success">
-
                                 </form>
                             </div>
                         </div>
@@ -177,7 +177,7 @@ $query=mysqli_query($con,$sql);
 
                 <!-- Formulario ingresar datos -->
 
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -193,4 +193,5 @@ $query=mysqli_query($con,$sql);
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
 </body>
+
 </html>
