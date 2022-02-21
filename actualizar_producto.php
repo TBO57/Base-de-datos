@@ -24,7 +24,8 @@ $row = mysqli_fetch_array($query);
     <b>
         <title>Actualizar usuario</title>
     </b>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha284-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/actualizar.css">
 
 </head>
 
@@ -35,35 +36,35 @@ $row = mysqli_fetch_array($query);
         <h1>Actualizando usuario...</h1>
     </div>
 
-    <div class="container mt-2">
+    <div class="tarjeta">
 
         <div class="row justify-content-center">
-            <div class="col-md-3" style="display: flex; align-items:center;">
+            <div style="display: flex; align-items:center;">
                 <form action="up_producto.php?$row['Codigo']&$row['Stock']&$row['Nombre']&row['Precio']&row['Descripcion']&row['Imagen']&row['Categoria']" method="POST">
 
-                    <h5 class="text text-center">Codigo producto:</h5>
-                    <input type="text" readonly class="form-control mb-3" name="Codigo" placeholder="Codigo" value="<?php echo $row['Codigo']   ?>">
+                    <p class="parr mt-2">Codigo producto:</p>
+                    <input type="text" readonly class="form-control mb-2" name="Codigo" placeholder="Codigo" value="<?php echo $row['Codigo']   ?>">
 
-                    <h5 class="text text-center">Stock:</h5>
-                    <input type="text" class="form-control mb-3" name="Stock" placeholder="Stock" value="<?php echo $row['Stock']   ?>">
+                    <p class="parr mt-2">Stock:</p>
+                    <input type="text" class="form-control mb-2" name="Stock" placeholder="Stock" value="<?php echo $row['Stock']   ?>">
 
-                    <h5 class="text text-center">Nombre</h5>
-                    <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre" value="<?php echo $row['Nombre']  ?>">
+                    <p class="parr mt-2">Nombre</p>
+                    <input type="text" class="form-control mb-2" name="Nombre" placeholder="Nombre" value="<?php echo $row['Nombre']  ?>">
 
-                    <h5 class="text text-center">Precio:</h5>
-                    <input type="number" class="form-control mb-3" name="Precio" placeholder="Precio" value="<?php echo $row['Precio']  ?>">
+                    <p class="parr mt-2">Precio:</p>
+                    <input type="number" class="form-control mb-2" name="Precio" placeholder="Precio" value="<?php echo $row['Precio']  ?>">
 
-                    <h5 class="text text-center">Descripción</h5>
-                    <input type="text" class="form-control mb-3" name="Descripcion" placeholder="Descripción" value="<?php echo $row['Descripcion']  ?>">
+                    <p class="parr mt-2">Descripción</p>
+                    <input type="text" class="form-control mb-2" name="Descripcion" placeholder="Descripción" value="<?php echo $row['Descripcion']  ?>">
 
-                    <h5 class="text text-center">URL imagen</h5>
-                    <input type="text" class="form-control mb-3" name="Imagen" placeholder="URL imagen" value="<?php echo $row['Imagen']  ?>">
+                    <p class="parr mt-2">URL imagen</p>
+                    <input type="text" class="form-control mb-2" name="Imagen" placeholder="URL imagen" value="<?php echo $row['Imagen']  ?>">
 
-                    <h5 class="text text-center">Categoria</h5>
-                    <input type="text" class="form-control mb-3" name="Categoria" placeholder="Categoria" value="<?php echo $row['Categoria']  ?>">
+                    <p class="parr mt-2">Categoria</p>
+                    <input type="text" class="form-control mb-2" name="Categoria" placeholder="Categoria" value="<?php echo $row['Categoria']  ?>">
 
-                    <div class="text text-center">
-                        <input type="submit" class="btn btn-success" value="Actualizar">
+                    <div class="parr mt-2">
+                        <input type="submit" class="btn btn-success mb-2 px-4" value="Actualizar">
                     </div>
 
                 </form>

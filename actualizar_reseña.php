@@ -24,7 +24,8 @@ $row = mysqli_fetch_array($query);
     <b>
         <title>Actualizar usuario</title>
     </b>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha284-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/actualizar.css">
 
 </head>
 
@@ -35,32 +36,32 @@ $row = mysqli_fetch_array($query);
         <h1>Actualizando usuario...</h1>
     </div>
 
-    <div class="container mt-2">
+    <div class="tarjeta">
 
         <div class="row justify-content-center">
-            <div class="col-md-3" style="display: flex; align-items:center;">
+            <div style="display: flex; align-items:center;">
                 <form action="up_reseña.php?$row['Id']$row['Codigo_producto']&$row['Usuario']&$row['Fecha']&row['Comentario']&row['Valoracion']" method="POST">
 
-                    <h5 class="text text-center">Id reseña:</h5>
-                    <input type="number" readonly class="form-control mb-3" name="Id" placeholder="Id reseña" value="<?php echo $row['Id']   ?>">
+                    <p class="parr mt-2">Id reseña:</p>
+                    <input type="number" readonly class="form-control mb-2" name="Id" placeholder="Id reseña" value="<?php echo $row['Id']   ?>">
 
-                    <h5 class="text text-center">Codigo producto:</h5>
-                    <input type="number" readonly class="form-control mb-3" name="Codigo_producto" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']   ?>">
+                    <p class="parr mt-2">Codigo producto:</p>
+                    <input type="number" readonly class="form-control mb-2" name="Codigo_producto" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']   ?>">
 
-                    <h5 class="text text-center">Usuario:</h5>
-                    <input type="text" class="form-control mb-3" name="Usuario" placeholder="Usuario" value="<?php echo $row['Usuario']   ?>">
+                    <p class="parr mt-2">Usuario:</p>
+                    <input type="text" class="form-control mb-2" name="Usuario" placeholder="Usuario" value="<?php echo $row['Usuario']   ?>">
 
-                    <h5 class="text text-center">Fecha</h5>
-                    <input type="date" class="form-control mb-3" name="Fecha" placeholder="Fecha" value="<?php echo $row['Fecha']  ?>">
+                    <p class="parr mt-2">Fecha</p>
+                    <input type="date" class="form-control mb-2" name="Fecha" placeholder="Fecha" value="<?php echo $row['Fecha']  ?>">
 
-                    <h5 class="text text-center">Comentario</h5>
-                    <input type="text" class="form-control mb-3" name="Comentario" placeholder="Comentario" value="<?php echo $row['Comentario']  ?>">
+                    <p class="parr mt-2">Comentario</p>
+                    <input type="text" class="form-control mb-2" name="Comentario" placeholder="Comentario" value="<?php echo $row['Comentario']  ?>">
 
-                    <h5 class="text text-center">Valoracion:</h5>
-                    <input type="number" class="form-control mb-3" name="Valoracion" placeholder="Valoracion" min="0" max="10" step="0.1" value="<?php echo $row['Valoracion']  ?>">
+                    <p class="parr mt-2">Valoracion:</p>
+                    <input type="number" class="form-control mb-2" name="Valoracion" placeholder="Valoracion" min="0" max="10" step="0.1" value="<?php echo $row['Valoracion']  ?>">
 
-                    <div class="text text-center">
-                        <input type="submit" class="btn btn-success" value="Actualizar">
+                    <div class="parr mt-2">
+                        <input type="submit" class="btn btn-success mb-2 px-4" value="Actualizar">
                     </div>
 
                 </form>
