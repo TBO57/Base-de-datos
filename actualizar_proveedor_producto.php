@@ -1,5 +1,3 @@
-
-
 <?php 
 
 include("conexion.php");
@@ -43,10 +41,12 @@ $row=mysqli_fetch_array($query);
      <div class="row justify-content-center">
       <div style="display: flex; align-items:center;">
         <form action="up_proveedor_producto.php?$row['Cod_pr']&$row['Id_pro']&$row['Costo']&$row['Fecha']&$row['Cantidad']" method="POST">
+        <p class="parr mt-2">Codigo</p> 
+         <input type="number" readonly class="form-control mb-2" name="Id" placeholder="ide" value="<?php echo $Id  ?>">
          <p class="parr mt-2">Codigo producto:</p> 
-         <input type="text" readonly class="form-control mb-2" name="Cod_pr" placeholder="Codigo ´producto" value="<?php echo $C_producto  ?>">
+         <input type="text" readonly class="form-control mb-2" name="Cod_pr" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']  ?>">
          <p class="parr mt-2">Id proveedor:</p> 
-         <input type="text" readonly class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $Id_prov   ?>">
+         <input type="text" readonly class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_proveedor']   ?>">
          <p class="parr mt-2">Costo total:</p> 
          <input type="text" class="form-control mb-2" name="Costo" placeholder="Costo total" value="<?php  echo $row['Costo_total']  ?>">   
          <p class="parr mt-2">Fecha compra:</p>           
