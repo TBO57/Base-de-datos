@@ -46,7 +46,7 @@ $row=mysqli_fetch_array($query);
          <p class="parr mt-2">Codigo producto:</p> 
          <input type="text" readonly class="form-control mb-2" name="Cod_pr" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']  ?>">
          <p class="parr mt-2">Id proveedor:</p> 
-         <input type="text" readonly class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_proveedor']   ?>">
+         <input type="text" readonly class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_prove']   ?>">
          <p class="parr mt-2">Costo total:</p> 
          <input type="text" class="form-control mb-2" name="Costo" placeholder="Costo total" value="<?php  echo $row['Costo_total']  ?>">   
          <p class="parr mt-2">Fecha compra:</p>           
