@@ -32,7 +32,7 @@ if(empty($Cod1))
     </div>';          
     }
 else{    
-    $sql = "INSERT INTO proveedor_producto(Codigo_producto,Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Cod1','$Cod2','$Costo','$Fecha','$Num')";
+    $sql = "INSERT INTO proveedor_producto(Codigo_producto, Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Cod1','$Cod2','$Costo','$Fecha','$Num')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 

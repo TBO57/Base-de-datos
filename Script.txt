@@ -17,8 +17,7 @@ double(2,1)); ALTER TABLE Reseña ADD FOREIGN KEY Reseña(Codigo_producto) REFER
 
 CREATE TABLE Proveedor(Id_proveedor varchar(4) PRIMARY KEY NOT NULL, Nombre varchar(50) NOT NULL, Pagina_web varchar(250));
 
-CREATE TABLE Proveedor_producto(Codigo_producto varchar(12), Id_proveedor varchar(4), Costo_total Integer(10), Fecha_compra date, 
-Cantidad_producto Integer(5)); 
+CREATE TABLE proveedor_producto(Id varchar(4) PRIMARY KEY NOT NULL,Codigo_producto varchar(12), FOREIGN KEY (Codigo_Producto) REFERENCES Producto(Codigo),Id_proveedor varchar(4), FOREIGN KEY (Id_proveedor) REFERENCES Proveedor(Id_proveedor), Costo_total Integer(10),Fecha_compra date, Cantidad_producto Integer(5));
 
 ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
 
@@ -27,3 +26,4 @@ ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Id_proveedor) REFERENCES Proveed
 ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
 
 ALTER TABLE Producto_pedido ADD FOREIGN KEY (Id_pedido) REFERENCES pedido(Id);
+
