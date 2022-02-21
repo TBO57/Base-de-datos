@@ -9,9 +9,9 @@ $sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo
 
 $query=mysqli_query($con,$sql);
 
-$c1 = mysqli_query($con,"SELECT Codigo,Nombre FROM producto,proveedor_producto WHERE proveedor_producto.Codigo_producto = producto.Codigo") or die ('No se pudo realizar la consulta');
+$c1 = mysqli_query($con,"SELECT Codigo,Nombre FROM producto,proveedor_producto") or die ('No se pudo realizar la consulta');
 
-$c2 = mysqli_query($con,"SELECT Nombre FROM proveedor,proveedor_producto WHERE proveedor_producto.Id_proveedor = proveedor.Id_proveedor") or die ('No se pudo realizar la consulta');
+$c2 = mysqli_query($con,"SELECT proveedor.Id_proveedor,Nombre FROM proveedor") or die ('No se pudo realizar la consulta');
 
 ?>
 
@@ -113,9 +113,9 @@ $c2 = mysqli_query($con,"SELECT Nombre FROM proveedor,proveedor_producto WHERE p
          <th><?php  echo $row['3']?></th>
          <th><?php  echo $row['4']?></th> 
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Cod_pr=<?php echo $row['0'] ?>&Id_pro=<?php echo $row['1'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_proveedor_producto.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_proveedor_producto.php?Id_prov=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
             </th>                                        
           </tr>
@@ -165,8 +165,7 @@ $c2 = mysqli_query($con,"SELECT Nombre FROM proveedor,proveedor_producto WHERE p
                   <?php
                   while($pos = mysqli_fetch_array($c2))
                   {
-                    $aqui = mysqli_fetch_array($c1);
-                    echo '<option value="'.$aqui[0].'">'.$pos[0].'</option>';
+                    echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
                   }
                   ?>
                   </select>
