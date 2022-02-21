@@ -117,7 +117,7 @@ $ids = mysqli_query($con, "SELECT Codigo  FROM producto") or die('No se pudo rea
 
 
                                     <th style="text-align:center">
-                                        <a href="actualizar_reseña.php?Codigo_producto=<?php echo $row['1'] ?>">
+                                        <a href="actualizar_reseña.php?reseña=<?php echo $row['1'] ?>">
                                             <button type="button" class="btn btn-light border border-dark ">
                                                 Editar
                                             </button>
@@ -125,7 +125,7 @@ $ids = mysqli_query($con, "SELECT Codigo  FROM producto") or die('No se pudo rea
                                     </th>
 
                                     <th style="text-align:center">
-                                        <a href="eliminar_reseña.php?Codigo_producto=<?php echo $row['1'] ?>">
+                                        <a href="eliminar_reseña.php?reseña=<?php echo $row['1'] ?>">
                                             <button type="button" class="btn btn-danger">
                                                 Eliminar
                                             </button>
