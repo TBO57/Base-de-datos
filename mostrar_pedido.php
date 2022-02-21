@@ -125,7 +125,7 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
          <th><?php  echo $row['8']?></th>
          
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_pedido.php?Id_p=<?php echo $row['2'] ?>Id_2=<?php echo $row['1']?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_pedido.php?Id_p=<?php echo $row['2'] ?>&Id_2=<?php echo $row['1']?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
          <th style="text-align:center"><a href="eliminar_usuario.php?Id_p=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
