@@ -1,0 +1,25 @@
+body {
+  background-color: #212121;
+  background-size: 100%;
+  background-size: cover;
+}
+
+.texto {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 93vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.texto p {
+  font-size: 25px;
+}
+.XD {
+  color: #fcdb00;
+}
+h1 {
+  color: #fff;
+}
