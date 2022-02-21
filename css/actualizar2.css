@@ -1,0 +1,26 @@
+body {
+  background-color: #212121;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: columm;
+  text-align: center;
+  justify-content: center;
+  border: 2px solid rgba(253, 253, 253, 0.2);
+  border-radius: 6px;
+  width: 400px;
+  margin: 0 auto;
+  background-color: #292929;
+  color: #fff;
+}
+
+.parr {
+  font-size: 15px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 30px;
+  color: #fff;
+}

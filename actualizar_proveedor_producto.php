@@ -1,40 +1,41 @@
-<?php 
+<?php
 
 include("conexion.php");
 
-$con=conectar();
+$con = conectar();
 
-// $C_producto = $_GET['Cod_pr'];
 $Id = $_GET['Id_t'];
-// $C_producto = $_REQUEST['Cod_pr'];
-// $Id_prov = $_REQUEST['Id_pro'];
 
-$sql="SELECT * FROM proveedor_producto WHERE Id='$Id'";
 
-$query=mysqli_query($con,$sql);
+$sql = "SELECT * FROM proveedor_producto WHERE Id='$Id'";
 
-$row=mysqli_fetch_array($query);
+$query = mysqli_query($con, $sql);
+
+$row = mysqli_fetch_array($query);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <b><title>Actualizar proveedor - producto</title></b>
+    <b>
+        <title>Actualizar proveedor - producto</title>
+    </b>
     <link href="https://cdn.jsdelivr.net/npm/bootstrapp.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha284-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/actualizar.css">
+    <link rel="stylesheet" href="css/actualizar2.css">
 
 </head>
 
 
 <body>
 
-<div class="title text-center py-3">
-    <h1>Actualizando proveedor - producto...</h1> 
-</div>
+    <div class="title text-center py-3">
+        <h1>Actualizando proveedor - producto...</h1>
+    </div>
 
     <div class="tarjeta">
 
@@ -64,4 +65,5 @@ $row=mysqli_fetch_array($query);
 
 
 </body>
+
 </html>

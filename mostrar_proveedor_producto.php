@@ -8,7 +8,7 @@ $sql = "SELECT proveedor_producto.Id, producto.Codigo, proveedor.Id_proveedor, p
 
 $query = mysqli_query($con, $sql);
 
-$c1 = mysqli_query($con, "SELECT Codigo,Nombre FROM producto,proveedor_producto") or die('No se pudo realizar la consulta');
+$c1 = mysqli_query($con, "SELECT producto.Codigo,Nombre FROM producto") or die('No se pudo realizar la consulta');
 
 $c2 = mysqli_query($con, "SELECT proveedor.Id_proveedor,Nombre FROM proveedor") or die('No se pudo realizar la consulta');
 
