@@ -70,7 +70,7 @@ $query=mysqli_query($con,$sql);
 <!-- ------Navbar------- -->
 
 <div class="title text-center py-3">
-    <h1>Proveedores</h1> 
+    <h1>Producto pedido</h1> 
 </div>
 
 <div class="content"  style="margin-top: 3px;">
@@ -140,11 +140,11 @@ $query=mysqli_query($con,$sql);
               </div>
 
               <div class="modal-body p-5 pt-0">
-                  <form action="add_proveedor.php" method="POST">
+                  <form action="add_producto_pedido.php" method="POST">
   
-                  <input type="text" class="form-control mb-3" name="Est" placeholder="Id Proveedor">
-                  <input type="number" class="form-control mb-3" name="Id_ped" placeholder="Nombre">
-                  <input type="number" class="form-control mb-3" name="Cod_prod" placeholder="Pagina Webb">
+                  <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado">
+                  <input type="number" class="form-control mb-3" name="Id_pedido" placeholder="Id Pedido">
+                  <input type="number" class="form-control mb-3" name="Codigo_producto" placeholder="Codigo Producto">
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>
