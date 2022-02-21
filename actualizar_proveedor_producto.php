@@ -25,8 +25,8 @@ $row = mysqli_fetch_array($query);
     <b>
         <title>Actualizar proveedor - producto</title>
     </b>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrapp.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha284-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/actualizar2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha284-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/actualizar.css">
 
 </head>
 
@@ -45,9 +45,9 @@ $row = mysqli_fetch_array($query);
                     <p class="parr mt-2">Codigo</p>
                     <input type="number" readonly class="form-control mb-2" name="Id" placeholder="ide" value="<?php echo $Id  ?>">
                     <p class="parr mt-2">Codigo producto:</p>
-                    <input type="text" readonly class="form-control mb-2" name="Cod_pr" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']  ?>">
+                    <input type="text" class="form-control mb-2" name="Cod_pr" placeholder="Codigo producto" value="<?php echo $row['Codigo_producto']  ?>">
                     <p class="parr mt-2">Id proveedor:</p>
-                    <input type="text" readonly class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_proveedor']   ?>">
+                    <input type="text" class="form-control mb-2" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_proveedor']   ?>">
                     <p class="parr mt-2">Costo total:</p>
                     <input type="text" class="form-control mb-2" name="Costo" placeholder="Costo total" value="<?php echo $row['Costo_total']  ?>">
                     <p class="parr mt-2">Fecha compra:</p>
