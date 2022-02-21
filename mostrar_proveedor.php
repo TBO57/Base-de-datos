@@ -80,14 +80,16 @@ $query=mysqli_query($con,$sql);
     
     <div>
       
-    <div class="col-md-8 table-responsive/*table-responsive container*/">
+    <div class="table-responsive">
      <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
     
       <thead>
         <tr align="center">
-          <th class="bg-info" >Id Provedor</th>
+          <th class="bg-info">Id Provedor</th>
           <th class="bg-info">Nombre</th>
           <th class="bg-info">Pagina Webb</th>
+          <th class="table-dark"></th>
+          <th class="table-dark"></th>
         </tr>
       </thead>
 
@@ -102,9 +104,9 @@ $query=mysqli_query($con,$sql);
          <th><?php  echo $row['Nombre']?></th>
          <th><?php  echo $row['Pagina_web']?></th> 
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_proveedor.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_proveedor.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_proveedor.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_proveedor.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
             <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
 

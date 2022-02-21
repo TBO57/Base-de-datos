@@ -4,14 +4,11 @@ include("conexion.php");
 
 $con=conectar();
 
-$Id_user = $_POST['Id_usuario'];
-$Tel =$_POST['Telefono'];
+$Id_prov = $_POST['Id_Proveedor'];
 $Nom =$_POST['Nombre'];
-$email =$_POST['Correo'];
-$pwd =$_POST['Contraseña'];
+$pgw =$_POST['Pagina_web'];
 
-$sql="UPDATE usuario SET Telefono='$Tel',Nombre='$Nom',Correo='$email',Contraseña='$pwd' WHERE Id='$Id_user'";
-// $sql="UPDATE departamentos SET Nombre='$nombre_',Economia='$economia_' WHERE IdDpto='$codigo_dpto_'";
+$sql="UPDATE proveedor SET Nombre='$Nom',Pagina_web='$pgw' WHERE Id_proveedor='$Id_prov'";
 
 $query=mysqli_query($con,$sql);
 
@@ -39,7 +36,7 @@ $query=mysqli_query($con,$sql);
 
  if($query){
 
-  Header("Location: mostrar_usuario.php");
+  Header("Location: mostrar_proveedor.php");
  }
  
 ?>
