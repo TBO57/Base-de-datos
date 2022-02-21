@@ -6,7 +6,7 @@ include("conexion.php");
 $con=conectar();
 
 $Id_pedido = $_GET['Id_p'];
-$Id_user = $_GET['Id_2'];
+// $Id_user = $_GET['Id_2'];
 
 $sql="SELECT * FROM pedido WHERE Id='$Id_pedido'";
 
@@ -41,7 +41,7 @@ $row=mysqli_fetch_array($query);
       <div style="display: flex; align-items:center;">
         <form action="up_pedido.php?$row['Id_usuario']&$row['Id']&$row['Fecha']&$row['Monto']&$row['Calle']&row['Carrera']&$row['Dpto']&row['Mun']" method="POST">
          <p class="parr mt-2">Id Usuario:</p> 
-         <input type="text" readonly class="form-control mb-2" style="width: 200px" name="Id_usuario" placeholder="Id usuario" value="<?php echo  $Id_user  ?>">
+         <input type="text" readonly class="form-control mb-2" style="width: 200px" name="Id_usuario" placeholder="Id usuario" value="<?php echo $row['Id_usuario'] ?>">
          <p class="parr">Id pedido:</p> 
          <input type="text" readonly class="form-control mb-2" name="Id" placeholder="Id pedido" value="<?php echo $row['Id']    ?>">
          <p class="parr">Fecha:</p> 

@@ -5,16 +5,16 @@ include("conexion.php");
 
 $con=conectar();
 
-$Id = $_GET['Id_p'];
-$Id_user = $_GET['Id_2'];
-$Fecha =$_POST['Fecha'];
-$Monto =$_POST['Monto'];
-$Calle =$_POST['Calle'];
-$Carrera =$_POST['Carrera'];
-$Dpto =$_POST['Dpto'];
-$Mun =$_POST['Mun'];
+$Id_user = $_REQUEST['Id_usuario'];
+$Id = $_REQUEST['Id'];
+$Fecha =$_REQUEST['Fecha'];
+$Monto =$_REQUEST['Monto'];
+$Calle =$_REQUEST['Calle'];
+$Carrera =$_REQUEST['Carrera'];
+$Dpto =$_REQUEST['Dpto'];
+$Mun =$_REQUEST['Mun'];
 
-$sql="UPDATE pedido SET Fecha='$Fecha',Monto_total='$Monto',Calle='$Calle',Carrera='$Carrera',Departamento='$Dpto',Municipio='$Mun' WHERE Id_usuario='$Id_user' AND Id='$Id'";
+$sql="UPDATE pedido SET Fecha='$Fecha',Monto_total='$Monto',Calle='$Calle',Carrera='$Carrera',Departamento='$Dpto',Municipio='$Mun' WHERE Id='$Id'";
 
 $query=mysqli_query($con,$sql);
 
