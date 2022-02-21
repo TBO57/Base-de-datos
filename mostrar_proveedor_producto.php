@@ -115,9 +115,9 @@ $c2 = mysqli_query($con,"SELECT proveedor.Id_proveedor,Nombre FROM proveedor") o
          <th><?php  echo $row['4']?></th>
          <th><?php  echo $row['5']?></th>  
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Cod_pr=<?php echo $row['0'] ?>&Id_pro=<?php echo $row['1'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Id_t=<?php echo $row['0'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_proveedor_producto.php?Id_prov=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_proveedor_producto.php?Id_t=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
             </th>                                        
           </tr>
