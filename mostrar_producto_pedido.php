@@ -1,16 +1,12 @@
-
-
 <?php
 
 include("conexion.php");
 // include("nav.html");
 $con = conectar();
 
-$sql = "SELECT usuario.Nombre, usuario.Id, pedido.Id, pedido.Fecha, pedido.Monto_total, pedido.Calle, pedido.Carrera, pedido.Departamento, pedido.Municipio FROM pedido,usuario WHERE pedido.Id_usuario = usuario.Id";
+$sql = "SELECT * FROM producto_pedido";
 
 $query=mysqli_query($con,$sql);
-
-$ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo realizar la consulta');
 
 ?>
 
@@ -68,17 +64,13 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
            <span class="badge bg-warning text-dark border border-dark  h-100"> <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor-producto</a></span>
           </li>
         </ul>
-        <!-- <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
       </div>
     </div>
   </nav>
 <!-- ------Navbar------- -->
 
 <div class="title text-center py-3">
-    <h1>Pedidos</h1> 
+    <h1>Proveedores</h1> 
 </div>
 
 <div class="content"  style="margin-top: 3px;">
@@ -93,15 +85,9 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
     
       <thead>
         <tr align="center">
-          <th class="bg-info">Id usuario</th>
-          <!-- <th class="bg-info">Nombre usuario</th> -->
-          <th class="bg-info">Id pedido</th>
-          <th class="bg-info">Fecha</th>
-          <th class="bg-info">Monto total</th>
-          <th class="bg-info">Calle</th>
-          <th class="bg-info">Carrera</th>
-          <th class="bg-info">Departamento</th>   
-          <th class="bg-info">Municipio</th>   
+          <th class="bg-info">Estado</th>
+          <th class="bg-info">Id del Pedido</th>
+          <th class="bg-info">Codigo del Producto</th>
           <th class="table-dark"></th>
           <th class="table-dark"></th>
         </tr>
@@ -114,20 +100,13 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
           ?>
 
        <tr align="center">
-         <th><?php  echo $row['1']?></th>
-         <!-- <th><?php  echo $row['0']?></th> -->
-         <th><?php  echo $row['2']?></th>
-         <th><?php  echo $row['3']?></th> 
-         <th><?php  echo $row['4']?></th>
-         <th><?php  echo $row['5']?></th>
-         <th><?php  echo $row['6']?></th>
-         <th><?php  echo $row['7']?></th>
-         <th><?php  echo $row['8']?></th>
-         
+         <th><?php  echo $row['Estado']?></th>
+         <th><?php  echo $row['Id_pedido']?></th>
+         <th><?php  echo $row['Codigo_producto']?></th> 
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_pedido.php?Id_p=<?php echo $row['2'] ?>&Id_2=<?php echo $row['1']?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_producto_pedido.php?Id=<?php echo $row['Id_pedido'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_usuario.php?Id_p=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_producto_pedido.php?Id=<?php echo $row['Id_pedido'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
             <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
 
@@ -141,7 +120,6 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
 
           </tbody>
         </table>
-        
       </div>
 
     <div class = "abrir">
@@ -156,45 +134,17 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
               <div class="modal-header p-5 pb-4 border-bottom-0 text">
                   <!-- <h5 class="modal-title">Modal title</h5> -->
                   <div class = "titulo-modal">
-                    <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos
-                     </span></h2>
+                    <h2 class="fw-bold mb-0"><span class="badge bg-warning text-dark border border-dark">Ingrese datos</span></h2>
                   </div>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
 
               <div class="modal-body p-5 pt-0">
-                  <form action="add_pedido.php" method="POST">
+                  <form action="add_proveedor.php" method="POST">
   
-                  <input type="number" class="form-control mb-3" name="Id_pedido" placeholder="Id pedido">
-                  <input type="date" class="form-control mb-3" name="Fecha" placeholder="Fecha">
-                  <input type="number" class="form-control mb-3" name="Monto" placeholder="Monto del pedido">
-                  <input type="text" class="form-control mb-3" name="Calle" placeholder="Calle">
-                  <input type="text" class="form-control mb-3" name="Carrera" placeholder="Carrera">
-                  <input type="text" class="form-control mb-3" name="Dpto" placeholder="Departamento">
-                  <input type="text" class="form-control mb-3" name="Mun" placeholder="Municipio">
-                  <?php
-                  <input type="text" class="form-control mb-3" name="Id_us" placeholder="XD">
-                  $t =    
-                     
-                  if($pos = mysqli_fetch_array($ids)){
-                  
-                  }
-                  ?>
-                  <!-- <h6>Seleccione el id del Usuario que realiza el pedido</h6>
-                  <select name="Id_us" id="" style="width:100%; background-color:#FFFFFF; font-size:15px">
-                   <?php
-
-                        while($pos = mysqli_fetch_array($ids))
-                        {
-                            echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
-                        }
-                        ?>
-                        </select>
-                      }
-
-                   ?>
-                  </select> -->
-                    <br><br> 
+                  <input type="text" class="form-control mb-3" name="Est" placeholder="Id Proveedor">
+                  <input type="number" class="form-control mb-3" name="Id_ped" placeholder="Nombre">
+                  <input type="number" class="form-control mb-3" name="Cod_prod" placeholder="Pagina Webb">
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>

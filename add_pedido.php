@@ -25,7 +25,7 @@
     
     $sql = "INSERT INTO pedido(Id_usuario,Id,Fecha,Monto_total,Calle,Carrera,Departamento,Municipio) VALUES ('$Id2','$Id','$Fecha','$Monto','$Calle','$Carrera','$Dpto','$Mun')";
 
-$consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
+    $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
      if ($consulta = 1)
      {
