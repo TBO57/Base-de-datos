@@ -12,7 +12,7 @@ CREATE TABLE Producto_pedido(Estado varchar(15) NOT NULL, Id_pedido Integer(15) 
 CREATE TABLE Producto(Codigo varchar(12) PRIMARY KEY NOT NULL, Stock varchar(4), Nombre varchar(50) NOT NULL, Precio Integer(10) NOT 
 NULL, Descripcion varchar(250), Imagen varchar(100) NOT NULL, Categoria varchar(50)); 
 
-CREATE TABLE Reseña(Codigo_producto varchar(12), Usuario varchar(50) NOT NULL, Fecha date, Comentario varchar(250), Valoracion 
+CREATE TABLE Reseña(Id Integer(10) PRIMARY KEY, Codigo_producto varchar(12), Usuario varchar(50) NOT NULL, Fecha date, Comentario varchar(250), Valoracion 
 double(2,1)); ALTER TABLE Reseña ADD FOREIGN KEY Reseña(Codigo_producto) REFERENCES Producto(Codigo); 
 
 CREATE TABLE Proveedor(Id_proveedor varchar(4) PRIMARY KEY NOT NULL, Nombre varchar(50) NOT NULL, Pagina_web varchar(250));
@@ -24,4 +24,6 @@ ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Codigo_producto) REFERENCES Prod
 
 ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Id_proveedor) REFERENCES Proveedor(Id_proveedor);
 
-ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
+ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);'
+
+ALTER TABLE Producto_pedido ADD FOREIGN KEY (Id_pedido) REFERENCES pedido(Id);

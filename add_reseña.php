@@ -11,25 +11,24 @@
 
 <body>
     <?php
-    $cod = $_REQUEST["Codigo"];
-    $sto = $_REQUEST["Stock"];
-    $nom = $_REQUEST["Nombre"];
-    $pre = $_REQUEST["Precio"];
-    $des = $_REQUEST["Descripcion"];
-    $img = $_REQUEST["Imagen"];
-    $cat = $_REQUEST["Categoria"];
+    $id = $_REQUEST["Id"];
+    $cod = $_REQUEST["Codigo_producto"];
+    $usr = $_REQUEST["Usuario"];
+    $dat = $_REQUEST["Fecha"];
+    $com = $_REQUEST["Comentario"];
+    $val = $_REQUEST["Valoracion"];
 
     include("conexion.php");
 
     $con = conectar();
 
-    $sql = "INSERT INTO producto(Codigo,Stock,Nombre,Precio,Descripcion,Imagen,Categoria) VALUES ('$cod','$sto','$nom','$pre','$des','$img','$cat')";
+    $sql = "INSERT INTO reseña(Id,Codigo_producto,Usuario,Fecha,Comentario,Valoracion) VALUES ('$id','$cod','$usr','$dat','$com','$val')";
 
     $consulta = mysqli_query($con, $sql) or die("No se pudieron guardar los datos");
 
     if ($consulta = 1) {
 
-        Header("Location: mostrar_producto.php");
+        Header("Location: mostrar_reseña.php");
     }
     ?>
 </body>
