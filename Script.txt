@@ -24,6 +24,6 @@ ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Codigo_producto) REFERENCES Prod
 
 ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Id_proveedor) REFERENCES Proveedor(Id_proveedor);
 
-ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);'
+ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
 
 ALTER TABLE Producto_pedido ADD FOREIGN KEY (Id_pedido) REFERENCES pedido(Id);
