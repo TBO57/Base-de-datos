@@ -1,17 +1,20 @@
 body {
   background-color: #212121;
   background-image: url("../img/fondo.jpg");
+  background-size: 100%;
+  background-size: cover;
 }
 
 .texto {
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  height: 93vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
 }
-
 h2 {
   font-size: 70px;
 }
