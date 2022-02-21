@@ -5,7 +5,7 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto, producto.Nombre, proveedor.Nombre FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo AND proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
+$sql = "SELECT proveedor_producto.Id, producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto, producto.Nombre, proveedor.Nombre FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo AND proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
 
 $query=mysqli_query($con,$sql);
 
@@ -90,6 +90,7 @@ $c2 = mysqli_query($con,"SELECT proveedor.Id_proveedor,Nombre FROM proveedor") o
     
       <thead>
         <tr align="center">
+          <th class="bg-info">Id</th>
           <th class="bg-info">Codigo producto</th>
           <th class="bg-info">Id Proveedor</th>
           <th class="bg-info">Costo total</th>
@@ -111,7 +112,8 @@ $c2 = mysqli_query($con,"SELECT proveedor.Id_proveedor,Nombre FROM proveedor") o
          <th><?php  echo $row['1']?></th>
          <th><?php  echo $row['2']?></th>
          <th><?php  echo $row['3']?></th>
-         <th><?php  echo $row['4']?></th> 
+         <th><?php  echo $row['4']?></th>
+         <th><?php  echo $row['5']?></th>  
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
          <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Cod_pr=<?php echo $row['0'] ?>&Id_pro=<?php echo $row['1'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
@@ -148,6 +150,7 @@ $c2 = mysqli_query($con,"SELECT proveedor.Id_proveedor,Nombre FROM proveedor") o
               <div class="modal-body p-5 pt-0">
                   <form action="add_proveedor_producto.php" method="POST">
 
+                  <input type="number" class="form-control mb-3" name="Id" placeholder="Id">
                  <div style="margin-top:5px;">
                   <select name="Cod_pr" id="" class="form-control mb-3" style="background-color:#FFFFFF;border:1px solid #122A2A;">
                   <?php

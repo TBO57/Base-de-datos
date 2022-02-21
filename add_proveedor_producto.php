@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+     $Id = $_REQUEST["Id"];
      $Cod1 = $_REQUEST["Cod_pr"];
      $Cod2 = $_REQUEST["Id_pro"];  
      $Costo = $_REQUEST["Costo"]; 
@@ -32,7 +33,7 @@ if(empty($Cod1))
     </div>';          
     }
 else{    
-    $sql = "INSERT INTO proveedor_producto(Codigo_producto, Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Cod1','$Cod2','$Costo','$Fecha','$Num')";
+    $sql = "INSERT INTO proveedor_producto(Id, Codigo_producto, Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Id','$Cod1','$Cod2','$Costo','$Fecha','$Num')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
