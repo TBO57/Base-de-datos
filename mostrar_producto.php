@@ -75,7 +75,7 @@ $query = mysqli_query($con, $sql);
     <!-- ------Navbar------- -->
 
     <div class="title text-center py-3">
-        <div style="background-color: green;">
+        <div>
             <h1>Productos</h1>
         </div>
     </div>

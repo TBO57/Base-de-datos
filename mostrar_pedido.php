@@ -77,7 +77,7 @@ $ids = mysqli_query($con, "SELECT Id, Nombre FROM usuario") or die('No se pudo r
   <!-- ------Navbar------- -->
 
   <div class="title text-center py-3">
-    <div style="background-color: blue;">
+    <div>
       <h1>Pedidos</h1>
     </div>
   </div>
