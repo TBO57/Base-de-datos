@@ -10,20 +10,17 @@
 </head>
 <body>
     <?php
-     $Id = $_REQUEST["Id_pedido"];
-     $Fecha = $_REQUEST["Fecha"];  
-     $Monto = $_REQUEST["Monto"]; 
-     $Calle = $_REQUEST["Calle"]; 
-     $Carrera = $_REQUEST["Carrera"]; 
-     $Dpto = $_REQUEST["Dpto"]; 
-     $Mun = $_REQUEST["Mun"]; 
-     $Id2 = $_REQUEST["Id_us"];
+     $Cod1 = $_REQUEST["Cod_pr"];
+     $Cod2 = $_REQUEST["Id_pro"];  
+     $Costo = $_REQUEST["Costo"]; 
+     $Fecha = $_REQUEST["Fecha"]; 
+     $Num = $_REQUEST["Cantidad"]; 
   
     include("conexion.php");
 
     $con = conectar();
 
-if(empty($Id))
+if(empty($Cod1))
     {
     echo '<div class="container">
           <div class="row">
@@ -35,13 +32,13 @@ if(empty($Id))
     </div>';          
     }
 else{    
-    $sql = "INSERT INTO pedido(Id_usuario,Id,Fecha,Monto_total,Calle,Carrera,Departamento,Municipio) VALUES ('$Id2','$Id','$Fecha','$Monto','$Calle','$Carrera','$Dpto','$Mun')";
+    $sql = "INSERT INTO proveedor_producto(Codigo_producto,Id_proveedor,Costo_total,Fecha_compra,Cantidad_producto) VALUES ('$Cod1','$Cod2','$Costo','$Fecha','$Num')";
 
     $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
      if ($consulta = 1)
      {
-        Header("Location: mostrar_pedido.php");
+        Header("Location: mostrar_proveedor_producto.php");
      }
    
     }
