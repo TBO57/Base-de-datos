@@ -4,7 +4,7 @@ include("conexion.php");
 
 $con = conectar();
 
-$id = $_GET['Id'];
+$id = $_GET['reseña'];
 
 $sql = "SELECT * FROM reseña WHERE Id ='$id'";
 
