@@ -1,5 +1,4 @@
 
-
 <?php
 
 include("conexion.php");
@@ -10,7 +9,7 @@ $sql = "SELECT usuario.Nombre, usuario.Id, pedido.Id, pedido.Fecha, pedido.Monto
 
 $query=mysqli_query($con,$sql);
 
-$ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo realizar la consulta');
+$ids = mysqli_query($con,"SELECT Id, Nombre FROM usuario") or die ('No se pudo realizar la consulta');
 
 ?>
 
@@ -127,7 +126,7 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
          <th style="text-align:center"><a href="actualizar_pedido.php?Id_p=<?php echo $row['2'] ?>&Id_2=<?php echo $row['1']?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_usuario.php?Id_p=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_pedido.php?Id_p=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
             <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
 
@@ -172,29 +171,16 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
                   <input type="text" class="form-control mb-3" name="Carrera" placeholder="Carrera">
                   <input type="text" class="form-control mb-3" name="Dpto" placeholder="Departamento">
                   <input type="text" class="form-control mb-3" name="Mun" placeholder="Municipio">
+                  <!-- <input type="text" class="form-control mb-3" name="Mun" placeholder="XD"> -->
+                  <select name="Id_us" id="" class="form-control mb-3" style="background-color:#FFFFFF;border:1px solid #122A2A;">
                   <?php
-                  <input type="text" class="form-control mb-3" name="Id_us" placeholder="XD">
-                  $t =    
-                     
-                  if($pos = mysqli_fetch_array($ids)){
-                  
+                  while($pos = mysqli_fetch_array($ids))
+                  {
+                    echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
                   }
                   ?>
-                  <!-- <h6>Seleccione el id del Usuario que realiza el pedido</h6>
-                  <select name="Id_us" id="" style="width:100%; background-color:#FFFFFF; font-size:15px">
-                   <?php
-
-                        while($pos = mysqli_fetch_array($ids))
-                        {
-                            echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
-                        }
-                        ?>
-                        </select>
-                      }
-
-                   ?>
-                  </select> -->
-                    <br><br> 
+                  </select>
+                  <br><br> 
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>
