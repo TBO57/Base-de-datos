@@ -10,21 +10,21 @@
 </head>
 <body>
     <?php
-     $Id_prov = $_REQUEST["Id_proveedor"];
-     $Nom = $_REQUEST["Nombre"];  
-     $url = $_REQUEST["Pagina_web"]; 
+     $Id_prov = $_REQUEST["Id_prov"];
+     $Nom = $_REQUEST["Nom"];  
+     $url = $_REQUEST["url"]; 
 
     include("conexion.php");
 
     $con = conectar();
     
-    $sql = "INSERT INTO proveedor(id_proveedor,nombre,pagina_web) VALUES ('$Id_prov','$Nom','$url')";
+    $sql = "INSERT INTO proveedor(Id_proveedor,Nombre,Pagina_web) VALUES ('$Id_prov','$Nom','$url')";
 
      $consulta = mysqli_query($con,$sql) or die ("No se pudieron guardar los datos");
 
      if ($consulta = 1)
      {
-        print "Datos guardados con Exito ";
+        Header("Location: mostrar_proveedor.php");
      }
     ?>
 </body>

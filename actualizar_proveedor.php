@@ -6,7 +6,7 @@ $con=conectar();
 
 $Id_proveedor = $_GET['Id'];
 
-$sql="SELECT * FROM proveedor WHERE Id='$Id_proveedor'";
+$sql="SELECT * FROM proveedor WHERE Id_proveedor='$Id_proveedor'";
 
 $query=mysqli_query($con,$sql);
 
@@ -36,13 +36,13 @@ $row=mysqli_fetch_array($query);
 
      <div class="row justify-content-center">
       <div class="col-md-3" style="display: flex; align-items:center;">
-        <form action="up_proveedor.php?$row['Id Proveedor']&$row['Nombre']&$row['Pagina Webb']" method="POST">
+        <form action="up_proveedor.php?$row['Id_proveedor']&$row['Nombre']&$row['Pagina_web']" method="POST">
          <h5 class="text text-center">Id Usuario:</h5> 
          <input type="text" readonly class="form-control mb-3" name="Id_Proveedor" placeholder="Id Proveedor" value="<?php echo $row['Id_proveedor']   ?>">
          <h5 class="text text-center">Telefono:</h5> 
          <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre" value="<?php echo $row['Nombre']   ?>">
          <h5 class="text text-center">Nombre</h5> 
-         <input type="text" class="form-control mb-3" name="Pagina_Webb" placeholder="Pagina Webb" value="<?php echo $row ['Pagina_Web']  ?>">      
+         <input type="text" class="form-control mb-3" name="Pagina_web" placeholder="Pagina Web" value="<?php echo $row ['Pagina_web']  ?>">      
          <div class="text text-center">     
          <input type="submit" class="btn btn-success" value="Actualizar" >
          </div>
