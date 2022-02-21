@@ -105,37 +105,37 @@ $query = mysqli_query($con, $sql);
                             while ($row = mysqli_fetch_array($query)) {
                             ?>
 
+                                <tr align="center">
+                                    <th><?php echo $row['Codigo'] ?></th>
+                                    <th><?php echo $row['Stock'] ?></th>
+                                    <th><?php echo $row['Nombre'] ?></th>
+                                    <th><?php echo $row['Precio'] ?></th>
+                                    <th><?php echo $row['Descripcion'] ?></th>
+                                    <th><?php echo $row['Imagen'] ?></th>
+                                    <th><?php echo $row['Categoria'] ?></th>
 
-                                <th><?php echo $row['Codigo'] ?></th>
-                                <th><?php echo $row['Stock'] ?></th>
-                                <th><?php echo $row['Nombre'] ?></th>
-                                <th><?php echo $row['Precio'] ?></th>
-                                <th><?php echo $row['Descripcion'] ?></th>
-                                <th><?php echo $row['Imagen'] ?></th>
-                                <th><?php echo $row['Categoria'] ?></th>
 
+                                    <th style="text-align:center">
+                                        <a href="actualizar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">
+                                            <button type="button" class="btn btn-light border border-dark ">
+                                                Editar
+                                            </button>
+                                        </a>
+                                    </th>
 
-                                <th style="text-align:center">
-                                    <a href="actualizar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">
-                                        <button type="button" class="btn btn-light border border-dark ">
-                                            Editar
-                                        </button>
-                                    </a>
-                                </th>
+                                    <th style="text-align:center">
+                                        <a href="eliminar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">
+                                            <button type="button" class="btn btn-danger">
+                                                Eliminar
+                                            </button>
 
-                                <th style="text-align:center">
-                                    <a href="eliminar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">
-                                        <button type="button" class="btn btn-danger">
-                                            Eliminar
-                                        </button>
+                                        </a>
 
-                                    </a>
+                                    </th>
 
-                                </th>
-
-                            <?php
+                                <?php
                             }
-                            ?>
+                                ?>
 
                         </tbody>
                     </table>
