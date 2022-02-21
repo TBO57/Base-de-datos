@@ -75,7 +75,7 @@ $query = mysqli_query($con, $sql);
     <!-- ------Navbar------- -->
 
     <div class="title text-center py-3">
-        <div>
+        <div style="background-color: green;">
             <h1>Productos</h1>
         </div>
     </div>
@@ -114,7 +114,7 @@ $query = mysqli_query($con, $sql);
                                     <th><?php echo $row['Descripcion'] ?></th>
                                     <th><?php echo $row['Imagen'] ?></th>
                                     <th><?php echo $row['Categoria'] ?></th>
-
+                                <tr>
 
                                     <th style="text-align:center">
                                         <a href="actualizar_producto.php?Codigo=<?php echo $row['Codigo'] ?>">

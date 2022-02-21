@@ -26,3 +26,6 @@
 thead th {
   color: #fff !important;
 }
+thead {
+  width: 50px;
+}
