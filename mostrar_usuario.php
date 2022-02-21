@@ -122,7 +122,7 @@ $query = mysqli_query($con, $sql);
 
                                     <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
 
-                                <th style="text-align:center"><a href="delete.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button"  class="btn btn-danger" onclick="return confirmDelete()">Eliminar</button></a> -->
+                                    <th style="text-align:center"><a href="delete.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button"  class="btn btn-danger" onclick="return confirmDelete()">Eliminar</button></a> -->
                                     </th>
                                 </tr>
 
