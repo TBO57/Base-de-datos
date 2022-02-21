@@ -144,7 +144,7 @@ $query = mysqli_query($con, $sql);
 
 
                 <div class="abrir">
-                    <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo usuario</button>
+                    <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo producto</button>
                 </div>
 
                 <!-- Formulario ingresar datos -->
