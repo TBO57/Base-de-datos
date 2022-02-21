@@ -172,7 +172,15 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
                   <input type="text" class="form-control mb-3" name="Carrera" placeholder="Carrera">
                   <input type="text" class="form-control mb-3" name="Dpto" placeholder="Departamento">
                   <input type="text" class="form-control mb-3" name="Mun" placeholder="Municipio">
-                  <h6>Seleccione el id del Usuario que realiza el pedido</h6>
+                  <?php
+                  <input type="text" class="form-control mb-3" name="Id_us" placeholder="XD">
+                  $t =    
+                     
+                  if($pos = mysqli_fetch_array($ids)){
+                  
+                  }
+                  ?>
+                  <!-- <h6>Seleccione el id del Usuario que realiza el pedido</h6>
                   <select name="Id_us" id="" style="width:100%; background-color:#FFFFFF; font-size:15px">
                    <?php
 
@@ -182,16 +190,11 @@ $ids = mysqli_query($con,"SELECT Nombre, Id FROM usuario") or die ('No se pudo r
                         }
                         ?>
                         </select>
-                      <!-- while($pos = mysqli_fetch_array($ids)){
-                        
-                        echo '<option value="'.$pos[0].'">'.$pos[1].'</option>'; 
-                       
-                       
                       }
 
                    ?>
                   </select> -->
-                    <br><br>
+                    <br><br> 
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>
