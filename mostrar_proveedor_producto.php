@@ -5,9 +5,13 @@ include("conexion.php");
 
 $con = conectar();
 
-$sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo & proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
+$sql = "SELECT producto.Codigo, proveedor.Id_proveedor, proveedor_producto.Costo_total, proveedor_producto.Fecha_compra, proveedor_producto.Cantidad_producto FROM proveedor_producto,producto,proveedor WHERE proveedor_producto.Codigo_producto = producto.Codigo AND proveedor_producto.Id_proveedor = proveedor.Id_proveedor";
 
 $query=mysqli_query($con,$sql);
+
+$c1 = mysqli_query($con,"SELECT Codigo,Nombre FROM producto") or die ('No se pudo realizar la consulta');
+
+$c2 = mysqli_query($con,"SELECT Id_proveedor,Nombre FROM proveedor") or die ('No se pudo realizar la consulta');
 
 ?>
 
@@ -15,7 +19,7 @@ $query=mysqli_query($con,$sql);
 <html lang="es">
 <head>
     
-  <title> Proveedores </title>
+  <title> Proveedor - Producto </title>
    <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,9 +90,11 @@ $query=mysqli_query($con,$sql);
     
       <thead>
         <tr align="center">
-          <th class="bg-info">Id Provedor</th>
-          <th class="bg-info">Nombre</th>
-          <th class="bg-info">Pagina Web</th>
+          <th class="bg-info">Codigo producto</th>
+          <th class="bg-info">Id Proveedor</th>
+          <th class="bg-info">Costo total</th>
+          <th class="bg-info">Fecha compra</th>
+          <th class="bg-info">Cantidad producto</th>
           <th class="table-dark"></th>
           <th class="table-dark"></th>
         </tr>
@@ -101,17 +107,16 @@ $query=mysqli_query($con,$sql);
           ?>
 
        <tr align="center">
-         <th><?php  echo $row['Id_proveedor']?></th>
-         <th><?php  echo $row['Nombre']?></th>
-         <th><?php  echo $row['Pagina_web']?></th> 
+         <th><?php  echo $row['0']?></th>
+         <th><?php  echo $row['1']?></th>
+         <th><?php  echo $row['2']?></th>
+         <th><?php  echo $row['3']?></th>
+         <th><?php  echo $row['4']?></th> 
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
-         <th style="text-align:center"><a href="actualizar_proveedor.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
+         <th style="text-align:center"><a href="actualizar_proveedor_producto.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
-         <th style="text-align:center"><a href="eliminar_proveedor.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
+         <th style="text-align:center"><a href="eliminar_proveedor_producto.php?Id=<?php echo $row['Id_proveedor'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
-            <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
-
-            <th style="text-align:center"><a href="delete.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button"  class="btn btn-danger" onclick="return confirmDelete()">Eliminar</button></a> -->
             </th>                                        
           </tr>
 
@@ -124,7 +129,7 @@ $query=mysqli_query($con,$sql);
       </div>
 
     <div class = "abrir">
-      <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo proveedor</button>
+      <button data-bs-toggle="modal" data-bs-target="#datos">Ingrese un nuevo registro</button>
     </div>
 
 <!-- Formulario ingresar datos -->
@@ -141,11 +146,36 @@ $query=mysqli_query($con,$sql);
               </div>
 
               <div class="modal-body p-5 pt-0">
-                  <form action="add_proveedor.php" method="POST">
-  
-                  <input type="number" class="form-control mb-3" name="Id_prov" placeholder="Id Proveedor">
-                  <input type="text" class="form-control mb-3" name="Nom" placeholder="Nombre">
-                  <input type="text" class="form-control mb-3" name="url" placeholder="Pagina Webb">
+                  <form action="add_proveedor_producto.php" method="POST">
+
+                 <div style="margin-top:5px;">
+                  <select name="Cod_pr" id="" class="form-control mb-3" style="background-color:#FFFFFF;border:1px solid #122A2A;">
+                  <?php
+                  while($pos = mysqli_fetch_array($c1))
+                  {
+                    echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
+                  }
+                  ?>
+                  </select>
+
+                 </div>
+
+                 <div style="margin-top:5px;">
+                  <select name="Id_pro" id="" class="form-control mb-3" style="background-color:#FFFFFF;border:1px solid #122A2A;">
+                  <?php
+                  while($pos = mysqli_fetch_array($c2))
+                  {
+                    echo '<option value="'.$pos[0].'">'.$pos[1].'</option>';
+                  }
+                  ?>
+                  </select>
+
+                 </div>
+
+                  <input type="number" class="form-control mb-3" name="Costo" placeholder="Costo total">
+                  <input type="date" class="form-control mb-3" name="Fecha" placeholder="Fecha compra">
+                  <input type="number" class="form-control mb-3" name="Cantidad" placeholder="Cantidad producto">
+
                   <input type="submit" value="Enviar" class="btn btn-success">
 
                 </form>
