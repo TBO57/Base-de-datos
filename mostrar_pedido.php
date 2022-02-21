@@ -67,10 +67,7 @@ $ids = mysqli_query($con, "SELECT Id, Nombre FROM usuario") or die('No se pudo r
             <span class="badge bg-warning text-dark border border-dark  h-100"> <a class="nav-link active" aria-current="page" href="mostrar_proveedor_producto.php">Proveedor-producto</a></span>
           </li>
         </ul>
-        <!-- <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form> -->
+ 
       </div>
     </div>
   </nav>
@@ -85,7 +82,6 @@ $ids = mysqli_query($con, "SELECT Id, Nombre FROM usuario") or die('No se pudo r
   <div class="content" style="margin-top: 3px;">
 
     <div class="container mt-2">
-      <!-- <div class="container-fluid col-md-8"> -->
 
       <div>
 
@@ -95,7 +91,6 @@ $ids = mysqli_query($con, "SELECT Id, Nombre FROM usuario") or die('No se pudo r
             <thead>
               <tr align="center">
                 <th class="bg-info">Id usuario</th>
-                <!-- <th class="bg-info">Nombre usuario</th> -->
                 <th class="bg-info">Id pedido</th>
                 <th class="bg-info">Fecha</th>
                 <th class="bg-info">Monto total</th>
@@ -130,9 +125,6 @@ $ids = mysqli_query($con, "SELECT Id, Nombre FROM usuario") or die('No se pudo r
 
                   <th style="text-align:center"><a href="eliminar_pedido.php?Id_p=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-danger">Eliminar</button></a></th>
 
-                  <!-- <th style="text-align:center"><a href="actualizar.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button" class="btn btn-info">Editar</button></a></th>
-
-            <th style="text-align:center"><a href="delete.php?codigo_dpto_=<?php echo $row['IdDpto'] ?>"> <button type="button"  class="btn btn-danger" onclick="return confirmDelete()">Eliminar</button></a> -->
                   </th>
                 </tr>
 
