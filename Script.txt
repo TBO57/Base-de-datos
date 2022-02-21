@@ -1,5 +1,5 @@
 
-TITULO BD: ventapartespc
+Nombre de BD: ventapartespc
 
 CREATE TABLE Usuario(Id Integer(7) PRIMARY KEY, Telefono varchar(10) NOT NULL, Nombre varchar(50) NOT NULL, Correo varchar(320) NOT 
 NULL, Contraseña varchar(300) NOT NULL);
