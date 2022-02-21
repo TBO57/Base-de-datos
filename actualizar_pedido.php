@@ -38,23 +38,23 @@ $row=mysqli_fetch_array($query);
 
      <div class="row justify-content-center">
       <div class="col-md-3" style="display: flex; align-items:center;">
-        <form action="up_pedido.php?$row['Id']&$row['Telefono']&$row['Nombre']&row['Correo']&row['Contraseña']" method="POST">
-         <h5 class="text text-center">Id pedido:</h5> 
-         <input type="text" readonly class="form-control mb-3" name="Id_usuario" placeholder="Id usuario" value="<?php echo $row['Id']   ?>">
+        <form action="up_pedido.php?$row['$Id_usuario']&$row['Id']&$row['Fecha']&$row['Monto']&$row['Calle']&row['Carrera']&$row['Dpto']&row['Mun']" method="POST">
          <h5 class="text text-center">Id Usuario:</h5> 
-         <input type="text" readonly class="form-control mb-3" name="Id_usuario" placeholder="Id usuario" value="<?php echo $Id_user   ?>">
+         <input type="text" readonly class="form-control mb-3" name="Id_usuario" placeholder="Id usuario" value="<?php echo  $Id_user  ?>">
+         <h5 class="text text-center">Id pedido:</h5> 
+         <input type="text" readonly class="form-control mb-3" name="Id" placeholder="Id pedido" value="<?php echo $row['Id']    ?>">
          <h5 class="text text-center">Fecha:</h5> 
-         <input type="text" class="form-control mb-3" name="Telefono" placeholder="Telefono" value="<?php echo $row['Fecha']   ?>">
+         <input type="text" class="form-control mb-3" name="Fecha" placeholder="Fecha" value="<?php echo $row['Fecha']   ?>">
          <h5 class="text text-center">Monto total:</h5> 
-         <input type="text" class="form-control mb-3" name="Nombre" placeholder="Nombre" value="<?php echo $row ['Monto_total']  ?>">
+         <input type="text" class="form-control mb-3" name="Monto" placeholder="Monto total" value="<?php echo $row ['Monto_total']  ?>">
          <h5 class="text text-center">Calle:</h5> 
-         <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php  echo $row['Calle']  ?>">   
+         <input type="text" class="form-control mb-3" name="Calle" placeholder="Calle" value="<?php  echo $row['Calle']  ?>">   
          <h5 class="text text-center">Carrera:</h5>           
-         <input type="password" class="form-control mb-3" name="Contraseña" placeholder="Contraseña" value="<?php  echo $row['Carrera']  ?>"> 
+         <input type="text" class="form-control mb-3" name="Carrera" placeholder="Carrera" value="<?php  echo $row['Carrera']  ?>"> 
          <h5 class="text text-center">Departamento:</h5> 
-         <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php  echo $row['Departamento']  ?>">
+         <input type="text" class="form-control mb-3" name="Dpto" placeholder="Departamento" value="<?php  echo $row['Departamento']  ?>">
          <h5 class="text text-center">Municipio:</h5> 
-         <input type="text" class="form-control mb-3" name="Correo" placeholder="Correo" value="<?php  echo $row['Municipio']  ?>">     
+         <input type="text" class="form-control mb-3" name="Mun" placeholder="Municipio" value="<?php  echo $row['Municipio']  ?>">     
          <div class="text text-center">     
          <input type="submit" class="btn btn-success" value="Actualizar" >
          </div>
