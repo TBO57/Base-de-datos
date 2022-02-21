@@ -98,9 +98,9 @@ $query=mysqli_query($con,$sql);
           ?>
 
        <tr align="center">
-         <th><?php  echo $row['Id_prov']?></th>
-         <th><?php  echo $row['Nom']?></th>
-         <th><?php  echo $row['url']?></th> 
+         <th><?php  echo $row['Id_proveedor']?></th>
+         <th><?php  echo $row['Nombre']?></th>
+         <th><?php  echo $row['Pagina_web']?></th> 
          <!-- <th> <a href="actualizar_usuario.php" ></th> -->
          <th style="text-align:center"><a href="actualizar_proveedor.php?Id=<?php echo $row['Id'] ?>"> <button type="button" class="btn btn-light border border-dark ">Editar</button></a></th>
 
