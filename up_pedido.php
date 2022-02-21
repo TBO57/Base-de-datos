@@ -5,8 +5,8 @@ include("conexion.php");
 
 $con=conectar();
 
-$Id_user = $_POST['Id_usuario'];
-$Id = $_POST['Id'];
+$Id = $_GET['Id_p'];
+$Id_user = $_GET['Id_2'];
 $Fecha =$_POST['Fecha'];
 $Monto =$_POST['Monto'];
 $Calle =$_POST['Calle'];
@@ -14,7 +14,7 @@ $Carrera =$_POST['Carrera'];
 $Dpto =$_POST['Dpto'];
 $Mun =$_POST['Mun'];
 
-$sql="UPDATE pedido SET Fecha='$Fecha',Monto_total='$Monto',Calle='$Calle',Carrera='$Carrera',Departamento='$Dpto',Municipio='$Mun' WHERE Id_usuario='$Id_user' & Id='$Id'";
+$sql="UPDATE pedido SET Fecha='$Fecha',Monto_total='$Monto',Calle='$Calle',Carrera='$Carrera',Departamento='$Dpto',Municipio='$Mun' WHERE Id_usuario='$Id_user' AND Id='$Id'";
 
 $query=mysqli_query($con,$sql);
 

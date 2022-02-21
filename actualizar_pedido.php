@@ -38,7 +38,7 @@ $row=mysqli_fetch_array($query);
 
      <div class="row justify-content-center">
       <div class="col-md-3" style="display: flex; align-items:center;">
-        <form action="up_pedido.php?$row['$Id_usuario']&$row['Id']&$row['Fecha']&$row['Monto']&$row['Calle']&row['Carrera']&$row['Dpto']&row['Mun']" method="POST">
+        <form action="up_pedido.php?$row['Id_usuario']&$row['Id']&$row['Fecha']&$row['Monto']&$row['Calle']&row['Carrera']&$row['Dpto']&row['Mun']" method="POST">
          <h5 class="text text-center">Id Usuario:</h5> 
          <input type="text" readonly class="form-control mb-3" name="Id_usuario" placeholder="Id usuario" value="<?php echo  $Id_user  ?>">
          <h5 class="text text-center">Id pedido:</h5> 
