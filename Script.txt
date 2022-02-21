@@ -23,3 +23,5 @@ Cantidad_producto Integer(5));
 ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
 
 ALTER TABLE Proveedor_producto ADD FOREIGN KEY (Id_proveedor) REFERENCES Proveedor(Id_proveedor);
+
+ALTER TABLE Producto_pedido ADD FOREIGN KEY (Codigo_producto) REFERENCES Producto(Codigo);
