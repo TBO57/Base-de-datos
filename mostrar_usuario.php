@@ -84,7 +84,7 @@ $query=mysqli_query($con,$sql);
         
             <div>
             
-                <div class="col-md-8 table-responsive/*table-responsive container*/">
+                <div class="table-responsive">
                     <table class="text-center table table-bordered table-hover /*table-striped*/ shadow-lg mt-1" style="width:100%">
                     
                         <thead>
