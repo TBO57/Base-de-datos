@@ -38,7 +38,7 @@ $row = mysqli_fetch_array($query);
     </div>
 
     <div class="tarjeta">
-
+        <!--  -->
         <div class="row justify-content-center">
             <div style="display: flex; align-items:center;">
                 <form action="up_proveedor_producto.php?$row['Cod_pr']&$row['Id_pro']&$row['Costo']&$row['Fecha']&$row['Cantidad']" method="POST">
