@@ -5,13 +5,14 @@ include("conexion.php");
 
 $con=conectar();
 
+$Id = $_POST['Id'];
 $Cod_producto = $_POST['Cod_pr'];
 $Id_prov = $_POST['Id_pro'];
 $Costo =$_POST['Costo'];
 $Fecha =$_POST['Fecha'];
 $Can_producto =$_POST['Cantidad'];
 
-$sql="UPDATE proveedor_producto SET Costo_total='$Costo',Fecha_compra='$Fecha',Cantidad_producto='$Can_producto' WHERE Codigo_producto='$Cod_producto' AND Id_proveedor='$Id_prov'";
+$sql="UPDATE proveedor_producto SET Costo_total='$Costo',Fecha_compra='$Fecha',Cantidad_producto='$Can_producto' WHERE Id='$Id'";
 
 $query=mysqli_query($con,$sql);
 

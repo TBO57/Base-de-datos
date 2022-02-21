@@ -6,10 +6,12 @@ include("conexion.php");
 
 $con=conectar();
 
-$C_producto = $_GET['Cod_pr'];
-$Id_prov = $_GET['Id_pro'];
+// $C_producto = $_GET['Cod_pr'];
+$Id = $_GET['Id_t'];
+// $C_producto = $_REQUEST['Cod_pr'];
+// $Id_prov = $_REQUEST['Id_pro'];
 
-$sql="SELECT * FROM proveedor_producto WHERE Codigo_producto='$C_producto' AND Id_proveedor='$Id_prov'";
+$sql="SELECT * FROM proveedor_producto WHERE Id='$Id'";
 
 $query=mysqli_query($con,$sql);
 
@@ -39,11 +41,13 @@ $row=mysqli_fetch_array($query);
 
      <div class="row justify-content-center">
       <div class="col-md-3" style="display: flex; align-items:center;">
-        <form action="up_proveedor_producto.php?$row['Cod_pr']&$row['Id_pro']&$row['Costo']&$row['Fecha']&$row['Cantidad']" method="POST">
+        <form action="up_proveedor_producto.php?$row['Id']&$row['Cod_pr']&$row['Id_pro']&$row['Costo']&$row['Fecha']&$row['Cantidad']" method="POST">
+         <h5 class="text text-center">Id:</h5> 
+         <input type="text" readonly class="form-control mb-3" name="Id" placeholder="Id" value="<?php echo $row['Id']  ?>">
          <h5 class="text text-center">Codigo producto:</h5> 
-         <input type="text" readonly class="form-control mb-3" name="Cod_pr" placeholder="Codigo ´producto" value="<?php echo $C_producto  ?>">
+         <input type="text" readonly class="form-control mb-3" name="Cod_pr" placeholder="Codigo ´producto" value="<?php echo $row['Codigo_producto']  ?>">
          <h5 class="text text-center">Id proveedor:</h5> 
-         <input type="text" readonly class="form-control mb-3" name="Id_pro" placeholder="Id proveedor" value="<?php echo $Id_prov   ?>">
+         <input type="text" readonly class="form-control mb-3" name="Id_pro" placeholder="Id proveedor" value="<?php echo $row['Id_proveedor']  ?>">
          <h5 class="text text-center">Costo total:</h5> 
          <input type="text" class="form-control mb-3" name="Costo" placeholder="Costo total" value="<?php  echo $row['Costo_total']  ?>">   
          <h5 class="text text-center">Fecha compra:</h5>           
